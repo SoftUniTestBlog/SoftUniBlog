@@ -3,7 +3,7 @@
 * George Tarkalanov - DEV
 * Toni Kolev - DevOps, Continuous Integration Setup
 * Stanislav Todorov - QA Team Lead
-* Svilen Savov - Quality Assurance Engineer
+* Dilyan Dimov - Quality Assurance Engineer
 * Tsvetomir Pavlov - Quality Assurance Engineer
 * Svilen Savov - Quality Assurance Engineer
 * Bozhidar Boshnakov - Project Manager, Presenter
