@@ -1,2 +1,4 @@
 # PhpStorm related ignores
 .idea/*
+/Blog/*
+.gitignore
