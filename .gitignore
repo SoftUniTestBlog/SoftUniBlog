@@ -1,4 +1,13 @@
 # PhpStorm related ignores
 .idea/*
-/Blog/*
-.gitignore
+
+# Articles and Users created locally related ignores
+Blog/App_Data/aspnet-Blog-20161128123155.mdf
+Blog/App_Data/aspnet-Blog-20161128123155_log.ldf
+Blog/bin/Blog.dll
+Blog/bin/Blog.pdb
+Blog/obj/Debug/Blog.csproj.FileListAbsolute.txt
+Blog/obj/Debug/Blog.csprojResolveAssemblyReference.cache
+Blog/obj/Debug/Blog.dll
+Blog/obj/Debug/Blog.pdb
+Blog/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
