@@ -1,0 +1,1 @@
+ProjectTests.GeneralProjectTests.HomePageSecondTest        D:\SoftuniQAAutomationCourse\TeamWork\Tests\DesignPattern\bin\Debug            0
