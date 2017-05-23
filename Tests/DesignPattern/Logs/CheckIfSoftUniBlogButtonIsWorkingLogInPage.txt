@@ -1,1 +1,0 @@
-ProjectTests.GeneralProjectTests.CheckIfSoftUniBlogButtonIsWorkingLogInPage        D:\Tests\DesignPattern\bin\Debug            0
