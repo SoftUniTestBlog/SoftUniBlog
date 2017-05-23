@@ -16,7 +16,7 @@ namespace ProjectTests.Pages.HomePage
             Assert.AreEqual(text, page.RegisterPageLogo.Text);
         }
 
-        //Check if logo is there
+        //Check if 
         public static void AssertYouAreOnHomePage(this HomePage page, string text)
         {
             Assert.AreEqual(text, page.Logo.Text);
@@ -28,12 +28,35 @@ namespace ProjectTests.Pages.HomePage
             Assert.AreEqual(text, page.LoginPageLogo.Text);
         }
 
-        //Check if you are on Login Page
+        //Check if copyright is  present
         public static void AssertCopyrightIsPresent(this HomePage page)
         {
             Assert.AreEqual("© 2017 - SoftUni Blog", page.Copyright.Text);
         }
 
+        //Second commit
+        //Check if you are on create page 
+        public static void AssertIAmOnCreatePage(this HomePage page)
+        {
+            Assert.AreEqual("Create Article", page.CreatePageLogo.Text);
+        }
 
+        //Check if Log off button is working on Home Page
+        public static void AssertLogOffButtonIsWorking(this HomePage page)
+        {
+            Assert.AreEqual("Log in", page.LoginButton.Text);
+        }
+
+        //Check if Manage button is working on Home Page
+        public static void AssertManageButtonIsWorkingOnHomePage(this HomePage page)
+        {
+            Assert.AreEqual("Manage", page.ManagePageLogo.Text);
+        }
+
+        //Check if Manage button is working on Home Page
+        public static void AssertCreateButtonIsMissing(this HomePage page)
+        {
+            Assert.AreEqual("Register", page.RegistrationButton.Text);
+        }
     }
 }

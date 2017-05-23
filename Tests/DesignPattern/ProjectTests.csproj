@@ -86,6 +86,9 @@
     <Compile Include="Pages\HomePage\HomePage.cs" />
     <Compile Include="Pages\HomePage\HomePageAsserter.cs" />
     <Compile Include="Pages\HomePage\HomePageMap.cs" />
+    <Compile Include="Pages\ManagePage\ManagePage.cs" />
+    <Compile Include="Pages\ManagePage\ManagePageAsserter.cs" />
+    <Compile Include="Pages\ManagePage\ManagePageMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeneralProjectTests.cs" />
   </ItemGroup>

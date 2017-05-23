@@ -23,18 +23,50 @@ namespace ProjectTests.Pages.HomePage
 
         public void ClickRegisterButton()
         {
+            NavigateTo();
             RegistrationButton.Click();
         }
 
         public void ClickHomePageLogo()
         {
+            NavigateTo();
             Logo.Click();
         }
 
         public void ClickLogInButton()
         {
+            NavigateTo();
             LoginButton.Click();
         }
 
+        //Second Commit
+        public void LogInAndClickCreateButton()
+        {
+            LogIn();
+            CreateButton.Click();
+        }
+
+        public void LogIn()
+        {
+            NavigateTo();
+            ClickLogInButton();
+            EmailFieldLogin.Clear();
+            EmailFieldLogin.SendKeys("svilen.savov@ffwagency.com");
+            PasswordFieldLogin.Clear();
+            PasswordFieldLogin.SendKeys("1234");
+            LoginSubmitButton.Click();
+        }
+
+        public void LogInAndOut()
+        {
+            LogIn();
+            LogOffButton.Click();
+        }
+
+        public void LogInAndClickManageButton()
+        {
+            LogIn();
+            ManageButton.Click();
+        }
     }
 }
