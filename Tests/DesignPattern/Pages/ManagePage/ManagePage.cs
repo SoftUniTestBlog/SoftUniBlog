@@ -15,11 +15,7 @@ namespace DesignPattern.Pages.ManagePage
         }
 
         //Second Commit
-        public void NavigateToHomePage()
-        {
-            Driver.Navigate().GoToUrl(this.url);
-            this.Driver.Manage().Window.Maximize();
-        }
+       
 
         public void ClickLogInButton()
         {

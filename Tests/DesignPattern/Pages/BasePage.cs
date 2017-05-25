@@ -32,5 +32,13 @@ namespace ProjectTests.Pages
                 return wait;
             }
         }
+
+        public void NavigateToHomePage()
+        {
+            Driver.Navigate().GoToUrl(this.url);
+            this.Driver.Manage().Window.Maximize();
+        }
+
+
     }
 }

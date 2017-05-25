@@ -1,0 +1,1 @@
+ProjectTests.GeneralProjectTests.CreateArticleWithoutTitle        D:\Project\SoftUniBlog\Tests\DesignPattern\bin\Debug            0

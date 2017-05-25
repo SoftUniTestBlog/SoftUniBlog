@@ -1,4 +1,7 @@
-﻿using DesignPattern.Pages.ManagePage;
+﻿using DesignPattern.Pages.ArticleDetailsPage;
+using DesignPattern.Pages.ArticleEditPage;
+using DesignPattern.Pages.CreatePage;
+using DesignPattern.Pages.ManagePage;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -164,6 +167,123 @@ namespace ProjectTests
             var managePage = new ManagePage(driver);
             managePage.ClickCreateButton();
             managePage.AssertIAmOnCreatePage();
+        }
+
+        //dilyan
+        //Create page
+
+        [Test]
+        public void CheckIfLogOffButtonIsWorkingCreatePage()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.LogOffClick();
+            createPage.AssertYouSeeLogInButton();
+        }
+
+        [Test]
+        public void CheckIfManageUserButtonIsWorkingCreatePage()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.ManageClick();
+            createPage.AssertYouSeePassword();
+        }
+
+        [Test]
+        public void CreateArticleWithTitleAndContent()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("TestArticle12345", "asddd");
+            createPage.AssertYouSeeArticle();
+        }
+
+        [Test]
+        public void CreateArticleWithoutTitle()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("","TestWithoutTitle");
+            createPage.AssertYouSeeTitleError();
+        }
+
+        [Test]
+        public void CreateArticleWithoutContent()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("TestWithoutContent", "");
+            createPage.AssertYouSeeContentError();
+        }
+
+        [Test]
+        public void CreateArticleWithTitleMoreThanFifthyCharacters()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd", "asd");
+            createPage.AssertYouSeeCharactersError();
+        }
+
+        [Test]
+        public void CancelCreateArticle()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.ClickCancelButton();
+            createPage.AssertYouAreOnArticleListPage();
+        }
+
+        //Article tests with logged in user:
+
+        [Test]
+        public void CheckIfEditButtonInArticleIsWorking()
+        {
+            var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogIn();
+            articleDetailsPage.NavigateTo();
+            articleDetailsPage.ClickEditButton();
+            articleDetailsPage.AssertYouAreOnEditPage();
+        }
+
+        [Test]
+        public void CheckIfTitleIsEditableInArticleEditMode()
+        {
+            var articleEditPage = new ArticleEditPage(driver);
+            articleEditPage.LogIn();
+            articleEditPage.NavigateTo();
+            articleEditPage.EditTitle();
+            articleEditPage.AssertChangedTitle();
+        }
+
+        [Test]
+        public void CheckIfContentIsEditableInArticleEditMode()
+        {
+            var articleEditPage = new ArticleEditPage(driver);
+            articleEditPage.LogIn();
+            articleEditPage.NavigateTo();
+            articleEditPage.EditContent("Edit content");
+            articleEditPage.EditButtonClick();
+            articleEditPage.AssertChangedContent();
+        }
+
+        [Test]
+        public void CheckIfCancelButtonInArticleEditModeIsWorking()
+        {
+            var articleEditPage = new ArticleEditPage(driver);
+            articleEditPage.LogIn();
+            articleEditPage.NavigateTo();
+            articleEditPage.EditContent("This should not be visible");
+            articleEditPage.CancelButtonClick();
+            articleEditPage.AssertCancel();
         }
     }
 }
