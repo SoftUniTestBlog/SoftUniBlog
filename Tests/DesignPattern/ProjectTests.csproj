@@ -83,6 +83,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\ArticleDeletePage\ArticleDeletePage.cs" />
+    <Compile Include="Pages\ArticleDeletePage\ArticleDeletePageAsserter.cs" />
+    <Compile Include="Pages\ArticleDeletePage\ArticleDeletePageMap.cs" />
     <Compile Include="Pages\ArticleDetailsPage\ArticleDetailsPage.cs" />
     <Compile Include="Pages\ArticleDetailsPage\ArticleDetailsPageAsserter.cs" />
     <Compile Include="Pages\ArticleDetailsPage\ArticleDetailsPageMap.cs" />

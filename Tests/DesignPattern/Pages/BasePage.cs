@@ -10,7 +10,7 @@ namespace ProjectTests.Pages
         protected string url = ConfigurationManager.AppSettings["URL"];
         private IWebDriver driver;
         private WebDriverWait wait;
-
+        
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;

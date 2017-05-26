@@ -29,6 +29,33 @@ namespace DesignPattern.Pages.ArticleDetailsPage
 
         }
 
+        public void LogInSecondUser()
+        {
+            NavigateToHomePage();
+            LoginButton.Click();
+            EmailFieldLogin.Clear();
+            EmailFieldLogin.SendKeys("user2@abv.bg");
+            PasswordFieldLogin.Clear();
+            PasswordFieldLogin.SendKeys("1234");
+            LoginSubmitButton.Click();
+
+        }
+
+        public void RegisterSecondUser()
+        {
+            RegisterButton.Click();
+            EmailFieldRegister.Clear();
+            EmailFieldRegister.SendKeys("user2@abv.bg");
+            FullNameFieldRegister.Clear();
+            FullNameFieldRegister.SendKeys("user2");
+            PasswordFieldRegister.Clear();
+            PasswordFieldRegister.SendKeys("1234");
+            ConfirmPasswordFieldRegister.Clear();
+            ConfirmPasswordFieldRegister.SendKeys("1234");
+            RegisterSubmitButton.Click();
+
+        }
+
 
         public void NavigateTo()
         {
@@ -39,5 +66,33 @@ namespace DesignPattern.Pages.ArticleDetailsPage
         {
             EditButton.Click();
         }
+
+        public void ClickBackButton()
+        {
+            BackButton.Click();
+        }
+        public void ClickCreateButton()
+        {
+            CreateButton.Click();
+        }
+
+        public void ClickLogOffButton()
+        {
+            LogOffButton.Click();
+        }
+
+        public void ClickManageButton()
+        {
+            ManageButton.Click();
+        }
+
+
+        public void ClickDeleteButton()
+        {
+            DeleteButton.Click();
+        }
+
+
+
     }
 }

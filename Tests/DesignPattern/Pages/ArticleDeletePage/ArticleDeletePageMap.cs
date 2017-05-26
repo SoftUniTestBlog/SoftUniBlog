@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ArticleEditPage
+namespace DesignPattern.Pages.ArticleDeletePage
 {
-    public partial class ArticleEditPage
+    public partial class ArticleDeletePage
     {
         public IWebElement EmailFieldLogin
         {
@@ -64,16 +64,7 @@ namespace DesignPattern.Pages.ArticleEditPage
             }
         }
 
-        public IWebElement EditButton
-        {
-            get
-            {
-                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/input")));
-                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/input"));
-            }
-        }
-
-        public IWebElement ChangedTitle
+        public IWebElement FirstArticle
         {
             get
             {
@@ -82,24 +73,23 @@ namespace DesignPattern.Pages.ArticleEditPage
             }
         }
 
-        public IWebElement ChangedContent
-        {
-            get
-            {
-                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/div[1]/article/p")));
-                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/article/p"));
-            }
-        }
-
         public IWebElement CancelButton
         {
             get
             {
-                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/a")));
-                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/a"));
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[3]/div/a")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[3]/div/a"));
             }
         }
 
+        public IWebElement DeleteButton
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[3]/div/a")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[3]/div/a"));
+            }
+        }
 
     }
 }

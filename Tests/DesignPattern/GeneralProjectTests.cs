@@ -1,4 +1,5 @@
-﻿using DesignPattern.Pages.ArticleDetailsPage;
+﻿using DesignPattern.Pages.ArticleDeletePage;
+using DesignPattern.Pages.ArticleDetailsPage;
 using DesignPattern.Pages.ArticleEditPage;
 using DesignPattern.Pages.CreatePage;
 using DesignPattern.Pages.ManagePage;
@@ -200,6 +201,7 @@ namespace ProjectTests
             createPage.NavigateTo();
             createPage.FillTitleContent("TestArticle12345", "asddd");
             createPage.AssertYouSeeArticle();
+            createPage.GetId();
         }
 
         [Test]
@@ -243,7 +245,7 @@ namespace ProjectTests
         }
 
         //Article tests with logged in user:
-
+        //ArticleDetailsPage
         [Test]
         public void CheckIfEditButtonInArticleIsWorking()
         {
@@ -254,6 +256,74 @@ namespace ProjectTests
             articleDetailsPage.AssertYouAreOnEditPage();
         }
 
+        [Test]
+        public void CheckIfBackButtonInArticleWorking()
+        {
+            var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogIn();
+            articleDetailsPage.NavigateTo();
+            articleDetailsPage.ClickBackButton();
+            articleDetailsPage.AssertYouAreOnListPage();
+        }
+
+        [Test]
+        public void CheckIfCreateButtonIsWorkingArticlePage()
+        {
+            var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogIn();
+            articleDetailsPage.NavigateTo();
+            articleDetailsPage.ClickCreateButton();
+            articleDetailsPage.AssertYouAreOnCreatePage();
+        }
+
+        [Test]
+        public void CheckIfLogOffButtonIsWorkingArticlePage()
+        {
+            var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogIn();
+            articleDetailsPage.NavigateTo();
+            articleDetailsPage.ClickLogOffButton();
+            articleDetailsPage.AssertYouAreNotLogged();
+        }
+
+        [Test]
+        public void CheckIfManageUserButtonIsWorkingArticlePage()
+        {
+            var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogIn();
+            articleDetailsPage.NavigateTo();
+            articleDetailsPage.ClickManageButton();
+            articleDetailsPage.AssertYouAreOnManagePage();
+        }
+
+        [Test]
+        public void CheckIfErrorMessageIsDisplayedTryingToEditArticleCreatedFromAnotherUser()
+        {
+            var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogIn();
+            articleDetailsPage.ClickLogOffButton();
+            articleDetailsPage.RegisterSecondUser();
+            articleDetailsPage.LogInSecondUser();
+            articleDetailsPage.NavigateTo();
+            articleDetailsPage.ClickEditButton();
+            articleDetailsPage.AssertYouHaveNoPermissions();
+            
+         }
+
+        [Test]
+        public void CheckIfErrorMessageIsDisplayedTryingToDeleteArticleCreatedFromAnotherUser()
+        {
+            var articleDetailsPage = new ArticleDetailsPage(driver);
+         
+            articleDetailsPage.LogInSecondUser();
+            articleDetailsPage.NavigateTo();
+            articleDetailsPage.ClickDeleteButton();
+            articleDetailsPage.AssertYouHaveNoPermissions();
+
+        }
+
+
+        // ArticleEditPage
         [Test]
         public void CheckIfTitleIsEditableInArticleEditMode()
         {
@@ -285,6 +355,48 @@ namespace ProjectTests
             articleEditPage.CancelButtonClick();
             articleEditPage.AssertCancel();
         }
+
+        // ArticleDeletePage
+
+        [Test]
+        public void CheckIfTitleIsEditableInArticleDeleteModearticle()
+        {
+            var articleDeletePage = new ArticleDeletePage(driver);
+            articleDeletePage.LogIn();
+            articleDeletePage.NavigateTo();
+            articleDeletePage.EditTitle();
+            articleDeletePage.AssertTitleIsNotChanged();
+        }
+
+        [Test]
+        public void CheckIfContentIsEditableInArticleDeleteMode()
+        {
+            var articleDeletePage = new ArticleDeletePage(driver);
+            articleDeletePage.LogIn();
+            articleDeletePage.NavigateTo();
+            articleDeletePage.EditContent();
+            articleDeletePage.AssertContentIsNotChanged();
+        }
+
+        [Test]
+        public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
+        {
+            var articleDeletePage = new ArticleDeletePage(driver);
+            articleDeletePage.LogIn();
+            articleDeletePage.NavigateTo();
+            articleDeletePage.CancelButtonClick();
+            articleDeletePage.AssertYouAreOnListPage();
+        }
+
+       // [Test]
+       // public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
+       // {
+        //    var articleDeletePage = new ArticleDeletePage(driver);
+         //   articleDeletePage.LogIn();
+          //  articleDeletePage.NavigateTo();
+          //  articleDeletePage.DeleteButtonClick();
+           // articleDeletePage.AssertArticleIsDeleted();
+     //   }
 
         //Registration page tests by Tsvetomir Pavlov
         //Register with correct credentials
