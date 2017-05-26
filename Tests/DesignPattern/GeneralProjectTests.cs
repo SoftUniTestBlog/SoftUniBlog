@@ -75,7 +75,7 @@ namespace ProjectTests
 
         //Check if Register Button is working
         [Test]
-        public void CheckIfSoftUniBlogButtonIsWorkingRegisterPage()
+        public void CheckIfRegisterButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
             homePage.ClickRegisterButton();
@@ -85,7 +85,7 @@ namespace ProjectTests
 
         //Check if Log In button works
         [Test]
-        public void CheckIfSoftUniBlogButtonIsWorkingLogInPage()
+        public void CheckIfLoginButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
             homePage.ClickLogInButton();
@@ -284,6 +284,162 @@ namespace ProjectTests
             articleEditPage.EditContent("This should not be visible");
             articleEditPage.CancelButtonClick();
             articleEditPage.AssertCancel();
+        }
+
+        //Registration page tests by Tsvetomir Pavlov
+        //Register with correct credentials
+        [Test]
+        public void RegisterWithCorrectCredentials()
+        {
+
+        }
+
+        //Register without email
+        [Test]
+        public void RegisterWithOutEmail()
+        {
+
+        }
+
+        //Register with incorrect email
+        [Test]
+        public void RegisterWithIncorrectEmail()
+        {
+
+        }
+
+        //Register without full name
+        [Test]
+        public void RegisterWithOutFullName()
+        {
+
+        }
+
+        //Register without password
+        [Test]
+        public void RegisterWithOutPassworde()
+        {
+
+        }
+
+        //Register without confirm password
+        [Test]
+        public void RegisterWithOutConfirmPassword()
+        {
+
+        }
+
+        //Register password missmatch
+        [Test]
+        public void RegisterPasswordMissmatch()
+        {
+
+        }
+
+        //Check if "SoftUniBlog" button is working on register page
+        [Test]
+        public void CheckIfSoftUniBlogButtonIsWorkingRegisterPage()
+        {
+
+        }
+
+        //Check if "Login" button is working on register page
+        [Test]
+        public void CheckIfLoginButtonIsWorkingResgisterPage()
+        {
+
+        }
+
+        //Check if "©2017SoftUniBlog" text is present on register page
+        [Test]
+        public void CheckIf2017SoftUniBlogTextIsPresentRegisterPage()
+        {
+
+        }
+
+        //Check if "Register" button is working on register page
+        [Test]
+        public void CheckIfRegisterButtonIsWorkingRegisterPage()
+        {
+
+        }
+
+        //Check if "Create" button is not displayed on register page
+        [Test]
+        public void CheckIfCreateButtonIsNotDisplyedRegisterPage()
+        {
+
+        }
+
+        //Login page tests by Tsvetomir Pavlov
+        //Login with correct credentials
+        [Test]
+        public void LoginWithCorrectCredentials()
+        {
+
+        }
+
+        //Login without email
+        [Test]
+        public void LoginWithOutEmail()
+        {
+
+        }
+
+        //Login with incorrect email
+        [Test]
+        public void LoginWithIncorrectEmail()
+        {
+
+        }
+
+        //Login without password
+        [Test]
+        public void LoginWithOutPassword()
+        {
+
+        }
+
+        //Login with incorrect password
+        [Test]
+        public void LoginWithIncorrectPassword()
+        {
+
+        }
+
+        //Check if "©2017SoftUniBlog" text is present in login page
+        [Test]
+        public void CheckIf2017SoftUniBlogTextIsPresentLogInPage()
+        {
+
+        }
+
+        //Check if "Login" button is working on login page
+        [Test]
+        public void CheckIfLoginButtonIsWorkingLoginPage()
+        {
+
+        }
+
+        //Check if "Remeber me" checkbox is working on login page 
+        [Test]
+        public void CheckIfRememberMeCheckBoxIsWorkingLoginPage()
+        {
+
+        }
+
+        //Check if "SoftUniBlog" button is working on login page 
+        [Test]
+        public void CheckIfSoftUniBlogButtonIsWorkingLogInPage()
+        {
+
+        }
+
+        //Check if "Create" button is not displayed on login page 
+        [Test]
+        public void CheckIfCreateButtonIsNotDisplyedLoginPage()
+        {
+
         }
     }
 }
