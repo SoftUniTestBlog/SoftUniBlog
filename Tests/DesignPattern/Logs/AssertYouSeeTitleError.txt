@@ -1,1 +1,0 @@
-ProjectTests.GeneralProjectTests.AssertYouSeeTitleError        D:\Project\SoftUniBlog\Tests\DesignPattern\bin\Debug            0
