@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPattern.Pages.LoginPage
 {
-    class LoginPageMap
+    public partial class LoginPage
     {
     }
 }

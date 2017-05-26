@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPattern.Pages.LoginPage
 {
-    class LoginPageAsserter
+    public static class LoginPageAsserter
     {
     }
 }

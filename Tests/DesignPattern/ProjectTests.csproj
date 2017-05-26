@@ -96,9 +96,15 @@
     <Compile Include="Pages\HomePage\HomePage.cs" />
     <Compile Include="Pages\HomePage\HomePageAsserter.cs" />
     <Compile Include="Pages\HomePage\HomePageMap.cs" />
+    <Compile Include="Pages\LoginPage\LoginPage.cs" />
+    <Compile Include="Pages\LoginPage\LoginPageAsserter.cs" />
+    <Compile Include="Pages\LoginPage\LoginPageMap.cs" />
     <Compile Include="Pages\ManagePage\ManagePage.cs" />
     <Compile Include="Pages\ManagePage\ManagePageAsserter.cs" />
     <Compile Include="Pages\ManagePage\ManagePageMap.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPageMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeneralProjectTests.cs" />
   </ItemGroup>

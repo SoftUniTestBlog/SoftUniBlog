@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPattern.Pages.RegistrationPage
 {
-    class RegistrationPageAsserter
+    public static class RegistrationPageAsserter
     {
     }
 }
