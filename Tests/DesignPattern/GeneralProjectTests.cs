@@ -3,6 +3,7 @@ using DesignPattern.Pages.ArticleDetailsPage;
 using DesignPattern.Pages.ArticleEditPage;
 using DesignPattern.Pages.CreatePage;
 using DesignPattern.Pages.ManagePage;
+using DesignPattern.Pages.RegistrationPage;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -388,49 +389,78 @@ namespace ProjectTests
             articleDeletePage.AssertYouAreOnListPage();
         }
 
-       // [Test]
-       // public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
-       // {
+        // [Test]
+        // public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
+        // {
         //    var articleDeletePage = new ArticleDeletePage(driver);
-         //   articleDeletePage.LogIn();
-          //  articleDeletePage.NavigateTo();
-          //  articleDeletePage.DeleteButtonClick();
-           // articleDeletePage.AssertArticleIsDeleted();
-     //   }
+        //   articleDeletePage.LogIn();
+        //  articleDeletePage.NavigateTo();
+        //  articleDeletePage.DeleteButtonClick();
+        // articleDeletePage.AssertArticleIsDeleted();
+        //   }
 
         //Registration page tests by Tsvetomir Pavlov
         //Register with correct credentials
         [Test]
         public void RegisterWithCorrectCredentials()
         {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.Register();
+            registrationPage.AssertSuccessRegistration();
         }
 
         //Register without email
         [Test]
         public void RegisterWithOutEmail()
         {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.FillFullName();
+            registrationPage.FillPassword();
+            registrationPage.FillConfirmPassword();
+            registrationPage.ClickRegisterButtonSubmit();
+            registrationPage.AssertEmailIsEntered();
         }
 
         //Register with incorrect email
         [Test]
         public void RegisterWithIncorrectEmail()
         {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.FillIncorrectEmail();
+            registrationPage.FillFullName();
+            registrationPage.FillPassword();
+            registrationPage.FillConfirmPassword();
+            registrationPage.ClickRegisterButtonSubmit();
+            registrationPage.AssertIncorrectEmailIsEntered();
         }
 
         //Register without full name
         [Test]
         public void RegisterWithOutFullName()
         {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.FillEmail();
+            registrationPage.FillPassword();
+            registrationPage.FillConfirmPassword();
+            registrationPage.ClickRegisterButtonSubmit();
+            registrationPage.AssertFullNameIsEntered();
         }
 
         //Register without password
         [Test]
-        public void RegisterWithOutPassworde()
+        public void RegisterWithOutPassword()
         {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.FillEmail();
+            registrationPage.FillFullName();
+            registrationPage.FillConfirmPassword();
+            registrationPage.ClickRegisterButtonSubmit();
+            registrationPage.AssertPasswordIsEntered();
 
         }
 
@@ -438,51 +468,87 @@ namespace ProjectTests
         [Test]
         public void RegisterWithOutConfirmPassword()
         {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.FillEmail();
+            registrationPage.FillFullName();
+            registrationPage.FillPassword();
+            registrationPage.ClickRegisterButtonSubmit();
+            registrationPage.AssertConfirmPasswordIsEntered();
         }
 
         //Register password missmatch
         [Test]
         public void RegisterPasswordMissmatch()
         {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.FillEmail();
+            registrationPage.FillFullName();
+            registrationPage.FillPassword();
+            registrationPage.FillConfirmPasswordMissmatch();
+            registrationPage.ClickRegisterButtonSubmit();
+            registrationPage.AssertPasswordMatch();
+        }
 
+        //Check if "Register" submit button is working on register page
+        [Test]
+        public void CheckIfLoginSubmitButtonIsWorkingResgisterPage()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.Register();
+            registrationPage.AssertSuccessRegistration();
         }
 
         //Check if "SoftUniBlog" button is working on register page
         [Test]
         public void CheckIfSoftUniBlogButtonIsWorkingRegisterPage()
         {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.ClickSoftUniBlogButton();
+            registrationPage.AssertSoftUniBlogButtonIsWorking();
         }
 
         //Check if "Login" button is working on register page
         [Test]
-        public void CheckIfLoginButtonIsWorkingResgisterPage()
+        public void CheckIfLoginButtonIsWorkingRegisterPage()
         {
-
-        }
-
-        //Check if "©2017SoftUniBlog" text is present on register page
-        [Test]
-        public void CheckIf2017SoftUniBlogTextIsPresentRegisterPage()
-        {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.ClickLoginButton();
+            registrationPage.AssertLoginButtonIsWorking();
         }
 
         //Check if "Register" button is working on register page
         [Test]
         public void CheckIfRegisterButtonIsWorkingRegisterPage()
         {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.ClickRegisterButton();
+            registrationPage.AssertRegisterButtonIsWorking();
         }
+
+        //Check if "©2017SoftUniBlog" text is present on register page
+        [Test]
+        public void CheckIf2017SoftUniBlogTextIsPresentRegisterPage()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.AssertCopyrightIsPresent();
+        }
+
 
         //Check if "Create" button is not displayed on register page
         [Test]
         public void CheckIfCreateButtonIsNotDisplyedRegisterPage()
         {
-
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.AssertCreateButtonIsNotPresent();
         }
-
         //Login page tests by Tsvetomir Pavlov
         //Login with correct credentials
         [Test]

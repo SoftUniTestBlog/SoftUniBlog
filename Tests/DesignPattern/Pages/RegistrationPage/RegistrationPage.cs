@@ -20,6 +20,75 @@ namespace DesignPattern.Pages.RegistrationPage
             this.Driver.Manage().Window.Maximize();
         }
 
+        public void Register()
+        {
+            FillEmail();
+            FillFullName();
+            FillPassword();
+            FillConfirmPassword();
+            RegisterSubmitButton.Click();
 
+        }
+
+        public void FillEmail()
+        {
+            Email.Clear();
+            Email.SendKeys("shavo@abv.bg");
+            
+
+        }
+        public void FillFullName()
+        {
+            FullName.Clear();
+            FullName.SendKeys("Tsvetomir Pavlov");
+
+
+        }
+
+        public void FillPassword()
+        {
+            Password.Clear();
+            Password.SendKeys("1111");
+
+
+        }
+
+        public void FillConfirmPassword()
+        {
+            ConfirmPassword.Clear();
+            ConfirmPassword.SendKeys("1111");
+        }
+
+        public void ClickRegisterButtonSubmit()
+        {
+            RegisterSubmitButton.Click();
+        }
+
+        public void FillIncorrectEmail()
+        {
+            Email.Clear();
+            Email.SendKeys("shavo@abv");
+        }
+
+        public void FillConfirmPasswordMissmatch()
+        {
+            ConfirmPassword.Clear();
+            ConfirmPassword.SendKeys("12345");
+        }
+
+        public void ClickSoftUniBlogButton()
+        {
+            SoftUniBlogButton.Click(); 
+        }
+
+        public void ClickLoginButton()
+        {
+            LoginButton.Click();
+        }
+
+        public void ClickRegisterButton()
+        {
+            RegisterButton.Click();
+        }
     }
 }

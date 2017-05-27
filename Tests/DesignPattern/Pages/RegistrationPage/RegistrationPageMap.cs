@@ -48,6 +48,15 @@ namespace DesignPattern.Pages.RegistrationPage
             }
         }
 
+        public IWebElement RegisterSubmitButton
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[6]/div/input")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[6]/div/input"));
+            }
+        }
+
         public IWebElement SoftUniBlogButton
         {
             get
@@ -93,6 +102,98 @@ namespace DesignPattern.Pages.RegistrationPage
                 return Driver.FindElement(By.LinkText("Create"));
             }
         }
+
+        public IWebElement HelloMessage
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.PartialLinkText("Hello")));
+                return Driver.FindElement(By.PartialLinkText("Hello"));
+            }
+        }
+
+        public IWebElement EmailFieldRequired
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement IncorrectEmail
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement FullNameEmpty
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement PasswordEmpty
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li[1]")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li[1]"));
+            }
+        }
+
+        public IWebElement ConfirmPasswordEmpty
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement PasswordMismatch
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement HomePage
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/div[1]/article/header/h2/a")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/article/header/h2/a"));
+            }
+        }
+
+        public IWebElement LoginPage
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/h2")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/h2"));
+            }
+        }
+
+        public IWebElement RegistrationPageForm
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/h2")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/h2"));
+            }
+        }
+
+      
     }
 
 }
