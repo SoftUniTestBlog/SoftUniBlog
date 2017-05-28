@@ -47,5 +47,23 @@ namespace DesignPattern.Pages.ArticleDetailsPage
             Assert.AreEqual("HTTP Error 403.0 - Forbidden", page.Forbidden.Text);
 
         }
+
+        //Check if Manage button is working on Home Page
+        public static void AssertCreateButtonIsMissing(this ArticleDetailsPage page)
+        {
+            Assert.AreEqual("Register", page.RegistrationButton.Text);
+        }
+
+        //Check if you are on Login Page
+        public static void AssertYouAreOnLoginPage(this ArticleDetailsPage page, string text)
+        {
+            Assert.AreEqual(text, page.LoginPageLogo.Text);
+        }
+
+        //Check if you are on Home Page
+        public static void AssertYouAreOnHomePage(this ArticleDetailsPage page, string text)
+        {
+            Assert.AreEqual(text, page.Logo.Text);
+        }
     }
 }

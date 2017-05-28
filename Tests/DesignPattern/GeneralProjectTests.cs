@@ -324,6 +324,45 @@ namespace ProjectTests
 
         }
 
+        //Check if Create button is notpresent when logged out on Article Details view
+        [Test]
+        public void CheckIfCreateButtonIsNotDisplyedArticlePage()
+        {
+            var articleNodeView = new ArticleDetailsPage(driver);
+            articleNodeView.NavigateToFirstArticle();
+            articleNodeView.AssertCreateButtonIsMissing();
+        }
+
+        //Check if Login button is working on Article Details view page
+        [Test]
+        public void CheckIfEditButtonInArticleIsRedirectingToLoginPage()
+        {
+            var articleNodeView = new ArticleDetailsPage(driver);
+            articleNodeView.NavigateToFirstArticle();
+            articleNodeView.ClickLoginButton();
+            articleNodeView.AssertYouAreOnLoginPage("Log in");
+        }
+
+        //Check if SoftUni Blog button is working on Article Details view page
+        [Test]
+        public void CheckIfSoftUniBlogButtonIsWorkingArticlePage()
+        {
+            var articleNodeView = new ArticleDetailsPage(driver);
+            articleNodeView.NavigateToFirstArticle();
+            articleNodeView.ClickSoftuniBlogButton();
+            articleNodeView.AssertYouAreOnHomePage("SOFTUNI BLOG");
+        }
+
+        //Check if SoftUni Blog button is working on Article Details view page
+        [Test]
+        public void CheckIf2017SoftUniBlogTextIsPresentArticlePage()
+        {
+            var articleNodeView = new ArticleDetailsPage(driver);
+            articleNodeView.NavigateToFirstArticle();
+            articleNodeView.ClickSoftuniBlogButton();
+            articleNodeView.AssertYouAreOnHomePage("SOFTUNI BLOG");
+        }
+
 
         // ArticleEditPage
         [Test]

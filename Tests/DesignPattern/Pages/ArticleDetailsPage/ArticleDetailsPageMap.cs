@@ -192,6 +192,35 @@ namespace DesignPattern.Pages.ArticleDetailsPage
             }
         }
 
+        public IWebElement RegistrationButton
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.LinkText("Register")));
+                return this.Driver.FindElement(By.LinkText("Register"));
+            }
+
+        }
+
+        public IWebElement LoginPageLogo
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/h2")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/h2"));
+            }
+        }
+
+        public IWebElement Logo
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.ClassName("navbar-brand")));
+                return this.Driver.FindElement(By.ClassName("navbar-brand"));
+
+            }
+        }
+
 
 
         public string URL

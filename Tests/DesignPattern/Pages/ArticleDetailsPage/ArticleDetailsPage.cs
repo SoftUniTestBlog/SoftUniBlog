@@ -92,6 +92,22 @@ namespace DesignPattern.Pages.ArticleDetailsPage
             DeleteButton.Click();
         }
 
+        public void NavigateToFirstArticle()
+        {
+            Driver.Navigate().GoToUrl(this.url + "/Article/Details/1");
+            this.Driver.Manage().Window.Maximize();
+        }
+
+        public void ClickLoginButton()
+        {
+            LoginButton.Click();
+        }
+
+        public void ClickSoftuniBlogButton()
+        {
+            Logo.Click();
+        }
+
 
 
     }
