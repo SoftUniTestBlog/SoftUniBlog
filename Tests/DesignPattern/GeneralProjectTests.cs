@@ -2,6 +2,7 @@
 using DesignPattern.Pages.ArticleDetailsPage;
 using DesignPattern.Pages.ArticleEditPage;
 using DesignPattern.Pages.CreatePage;
+using DesignPattern.Pages.LoginPage;
 using DesignPattern.Pages.ManagePage;
 using DesignPattern.Pages.RegistrationPage;
 using NUnit.Framework;
@@ -554,70 +555,127 @@ namespace ProjectTests
         [Test]
         public void LoginWithCorrectCredentials()
         {
-
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.Login();
+            loginPage.AssertSuccesfullLogin();
         }
 
         //Login without email
         [Test]
         public void LoginWithOutEmail()
         {
-
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillPassword();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertLoginEmailIsEntered();
         }
 
         //Login with incorrect email
         [Test]
         public void LoginWithIncorrectEmail()
         {
-
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillIncorrectEmail();
+            loginPage.FillPassword();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertLoginEmailIsIncorrect();
         }
 
         //Login without password
         [Test]
         public void LoginWithOutPassword()
         {
-
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillEmail();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertLoginPasswordIsEntered();
         }
 
         //Login with incorrect password
         [Test]
         public void LoginWithIncorrectPassword()
         {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillEmail();
+            loginPage.FillIncorrectPassword();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertLoginPasswordIsIncorrect();
+        }
 
+        //Check if "Login" submit button is working on login page
+        [Test]
+        public void CheckIfLoginSubmitButtonIsWorkingLoginPage()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.Login();
+            loginPage.AssertSuccesfullLogin();
         }
 
         //Check if "©2017SoftUniBlog" text is present in login page
         [Test]
         public void CheckIf2017SoftUniBlogTextIsPresentLogInPage()
         {
-
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.AssertCopyrightIsPresent();
         }
 
         //Check if "Login" button is working on login page
         [Test]
         public void CheckIfLoginButtonIsWorkingLoginPage()
         {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.ClickLoginButton();
+            loginPage.AssertLoginButtonIsWorking();
+        }
 
+        //Check if "Register" button is working on login page
+        [Test]
+        public void CheckIfRegisterButtonIsWorkingLoginPage()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.ClickRegisterButton();
+            loginPage.AssertRegisterButtonIsWorking();
         }
 
         //Check if "Remeber me" checkbox is working on login page 
         [Test]
         public void CheckIfRememberMeCheckBoxIsWorkingLoginPage()
         {
-
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillEmail();
+            loginPage.FillPassword();
+            loginPage.SelectCheckbox();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertCheckBoxIsSelected();
         }
 
         //Check if "SoftUniBlog" button is working on login page 
         [Test]
         public void CheckIfSoftUniBlogButtonIsWorkingLogInPage()
         {
-
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.ClickSoftUniBlogButton();
+            loginPage.AssertSoftUniBlogButtonIsWorking();
         }
 
         //Check if "Create" button is not displayed on login page 
         [Test]
         public void CheckIfCreateButtonIsNotDisplyedLoginPage()
         {
-
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.AssertCreateButtonIsNotPresent();
         }
     }
 }
