@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Configuration;
+using System.Linq;
 
 namespace ProjectTests.Pages
 {
@@ -10,7 +11,8 @@ namespace ProjectTests.Pages
         protected string url = ConfigurationManager.AppSettings["URL"];
         private IWebDriver driver;
         private WebDriverWait wait;
-        
+
+
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
@@ -39,6 +41,7 @@ namespace ProjectTests.Pages
             this.Driver.Manage().Window.Maximize();
         }
 
+        
 
     }
 }

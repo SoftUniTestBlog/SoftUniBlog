@@ -19,7 +19,7 @@ namespace DesignPattern.Pages.ArticleEditPage
         //Check if you see changed content
         public static void AssertChangedContent(this ArticleEditPage page)
         {
-            Assert.AreEqual("Edit content", page.ChangedContent.Text);
+            Assert.AreEqual("TestArticle12345-EditTitle", page.ChangedContent.Text);
         }
 
         //Check if you see changed content

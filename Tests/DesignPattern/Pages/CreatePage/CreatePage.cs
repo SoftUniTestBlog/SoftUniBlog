@@ -10,25 +10,14 @@ namespace DesignPattern.Pages.CreatePage
 {
     public partial class CreatePage : BasePage
     {
-        private string Id;
+       
         
         public CreatePage(IWebDriver driver) : base(driver)
         {
         }
 
 
-        public void GetId()
-        {
-            Article.Click();
-            string URL = Driver.Url;
-            this.Id = URL.Split('/').Last();
-
-        }
-        public string ID
-        {
-            get { return this.Id; }
-            set { this.Id = value; }
-        }
+       
 
 
         public void LogIn()

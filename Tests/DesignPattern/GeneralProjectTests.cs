@@ -203,7 +203,7 @@ namespace ProjectTests
             createPage.NavigateTo();
             createPage.FillTitleContent("TestArticle12345", "asddd");
             createPage.AssertYouSeeArticle();
-            createPage.GetId();
+
         }
 
         [Test]
@@ -429,15 +429,15 @@ namespace ProjectTests
             articleDeletePage.AssertYouAreOnListPage();
         }
 
-        // [Test]
-        // public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
-        // {
-        //    var articleDeletePage = new ArticleDeletePage(driver);
-        //   articleDeletePage.LogIn();
-        //  articleDeletePage.NavigateTo();
-        //  articleDeletePage.DeleteButtonClick();
-        // articleDeletePage.AssertArticleIsDeleted();
-        //   }
+        [Test]
+        public void CheckIfDeleteButtonInArticleDeleteModeIsWorking()
+        {
+            var articleDeletePage = new ArticleDeletePage(driver);
+            articleDeletePage.LogIn();
+            articleDeletePage.NavigateTo();
+            articleDeletePage.DeleteButtonClick();
+            articleDeletePage.AssertArticleIsDeleted();
+           }
 
         //Registration page tests by Tsvetomir Pavlov
         //Register with correct credentials

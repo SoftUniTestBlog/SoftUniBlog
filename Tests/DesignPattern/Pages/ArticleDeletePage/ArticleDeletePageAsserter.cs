@@ -25,7 +25,13 @@ namespace DesignPattern.Pages.ArticleDeletePage
         //Check if content is changed
         public static void AssertYouAreOnListPage(this ArticleDeletePage page)
         {
-            Assert.AreEqual("Edit title", page.FirstArticle.Text);
+            Assert.AreEqual("TestArticle12345-EditTitle", page.FirstArticle.Text);
+        }
+
+        //Check if content is deleted
+        public static void AssertArticleIsDeleted(this ArticleDeletePage page)
+        {
+            Assert.AreEqual("SOFTUNI BLOG", page.FirstArticle.Text);
         }
     }
 }

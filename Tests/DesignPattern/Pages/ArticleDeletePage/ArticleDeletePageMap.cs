@@ -63,13 +63,32 @@ namespace DesignPattern.Pages.ArticleDeletePage
                 return Driver.FindElement(By.Id("Content"));
             }
         }
-
+        private bool IsElementPresent(By by)
+        {
+            try
+            {
+                Driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
         public IWebElement FirstArticle
         {
             get
             {
-                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/div[1]/article/header/h2/a")));
-                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/article/header/h2/a"));
+               
+                if (IsElementPresent(By.PartialLinkText("TestArticle12345")))
+                {
+                    return Driver.FindElement(By.PartialLinkText("TestArticle12345"));
+                }
+                else
+                {
+                    return Driver.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a"));
+                }
+                      
             }
         }
 
@@ -86,8 +105,9 @@ namespace DesignPattern.Pages.ArticleDeletePage
         {
             get
             {
-                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[3]/div/a")));
-                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[3]/div/a"));
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[3]/div/input")));
+                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[3]/div/input"));
+
             }
         }
 

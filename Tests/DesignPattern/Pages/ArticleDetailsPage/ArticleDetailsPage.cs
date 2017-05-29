@@ -10,6 +10,7 @@ namespace DesignPattern.Pages.ArticleDetailsPage
 {
     public partial class ArticleDetailsPage : BasePage
     {
+    
         public ArticleDetailsPage(IWebDriver driver) : base(driver)
         {
         }
@@ -59,7 +60,11 @@ namespace DesignPattern.Pages.ArticleDetailsPage
 
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(this.url + "/Article/Details/1");
+            Driver.Navigate().GoToUrl(this.url);
+            Driver.FindElement(By.PartialLinkText("TestArticle12345")).Click();
+            string URL = Driver.Url;
+            string Id = URL.Split('/').Last();
+            Driver.Navigate().GoToUrl(this.url + "/Article/Details/" + Id );
         }
 
         public void ClickEditButton()

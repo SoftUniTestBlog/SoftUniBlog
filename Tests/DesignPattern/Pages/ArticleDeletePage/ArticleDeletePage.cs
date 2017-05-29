@@ -33,8 +33,12 @@ namespace DesignPattern.Pages.ArticleDeletePage
 
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(this.url + "/Article/Delete/1");
-        }
+            Driver.Navigate().GoToUrl(this.url);
+            Driver.FindElement(By.PartialLinkText("TestArticle12345")).Click();
+            string URL = Driver.Url;
+            string Id = URL.Split('/').Last();
+            Driver.Navigate().GoToUrl(this.url + "/Article/Delete/" + Id);
+         }
 
         public void EditTitle()
         {

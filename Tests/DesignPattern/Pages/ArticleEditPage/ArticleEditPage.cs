@@ -29,14 +29,19 @@ namespace DesignPattern.Pages.ArticleEditPage
 
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(this.url + "/Article/Edit/1");
+            Driver.Navigate().GoToUrl(this.url);
+            Driver.FindElement(By.PartialLinkText("TestArticle12345")).Click();
+            string URL = Driver.Url;
+            string Id = URL.Split('/').Last();
+            Driver.Navigate().GoToUrl(this.url + "/Article/Edit/" + Id);
         }
+        
 
         public void EditTitle()
         {
             
             TitleField.Clear();
-            TitleField.SendKeys("Edit title");
+            TitleField.SendKeys("TestArticle12345-EditTitle");
             EditButton.Click();
 
         }
