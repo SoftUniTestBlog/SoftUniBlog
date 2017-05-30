@@ -9,6 +9,7 @@ namespace DesignPattern.Pages.RegistrationPage
 {
     public static class RegistrationPageAsserter
     {
+        //Registration page assertions by Tsvetomir Pavlov
         //Check if registration is successfull
         public static void AssertSuccessRegistration(this RegistrationPage page)
         {

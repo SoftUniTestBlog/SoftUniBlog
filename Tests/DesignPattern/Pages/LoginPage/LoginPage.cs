@@ -10,6 +10,7 @@ namespace DesignPattern.Pages.LoginPage
 {
     public partial class LoginPage : BasePage
     {
+        //Login page by Tsvetomir Pavlov
         public LoginPage(IWebDriver driver) : base(driver)
         {
         }

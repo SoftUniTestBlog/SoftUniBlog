@@ -9,7 +9,7 @@ namespace DesignPattern.Pages.LoginPage
 {
     public static class LoginPageAsserter
     {
-
+        //Login page assertions by Tsvetomir Pavlov
         //Check if login is successfull
         public static void AssertSuccesfullLogin(this LoginPage page)
         {

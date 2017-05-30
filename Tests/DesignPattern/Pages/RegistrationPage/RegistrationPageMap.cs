@@ -10,8 +10,8 @@ namespace DesignPattern.Pages.RegistrationPage
 {
     public partial class RegistrationPage
     {
-        
 
+        //Registration page map by Tsvetomir Pavlov
         public IWebElement Email
         {
             get

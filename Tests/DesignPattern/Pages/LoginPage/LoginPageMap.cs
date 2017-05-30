@@ -10,6 +10,8 @@ namespace DesignPattern.Pages.LoginPage
 {
     public partial class LoginPage
     {
+
+        //Login page map by Tsvetomir Pavlov
         public IWebElement Email
         {
             get

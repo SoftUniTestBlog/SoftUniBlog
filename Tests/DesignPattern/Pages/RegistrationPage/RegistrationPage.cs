@@ -10,6 +10,7 @@ namespace DesignPattern.Pages.RegistrationPage
 {
     public partial class RegistrationPage : BasePage
     {
+        //Registration page by Tsvetomir Pavlov
         public RegistrationPage(IWebDriver driver) : base(driver)
         {
         }
