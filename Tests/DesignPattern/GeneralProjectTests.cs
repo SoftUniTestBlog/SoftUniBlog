@@ -5,6 +5,7 @@ using DesignPattern.Pages.CreatePage;
 using DesignPattern.Pages.LoginPage;
 using DesignPattern.Pages.ManagePage;
 using DesignPattern.Pages.RegistrationPage;
+using DesignPattern.Pages.UserListPage;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -438,6 +439,20 @@ namespace ProjectTests
             articleDeletePage.DeleteButtonClick();
             articleDeletePage.AssertArticleIsDeleted();
            }
+
+        // User List Page
+
+        [Test]
+        public void DeleteUsers()
+        {
+            var userListPage = new UserListPage(driver);
+            userListPage.LogIn();
+            userListPage.NavigateTo();
+            userListPage.Delete();
+   
+        }
+
+
 
         //Registration page tests by Tsvetomir Pavlov
         //Register with correct credentials

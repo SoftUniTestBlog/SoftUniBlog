@@ -108,6 +108,9 @@
     <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPageMap.cs" />
+    <Compile Include="Pages\UserListPage\UserListPage.cs" />
+    <Compile Include="Pages\UserListPage\UserListPageAsserter.cs" />
+    <Compile Include="Pages\UserListPage\UserListPageMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeneralProjectTests.cs" />
   </ItemGroup>
