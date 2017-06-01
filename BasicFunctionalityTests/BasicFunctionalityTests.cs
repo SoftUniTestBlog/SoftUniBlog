@@ -21,9 +21,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ProjectTests
+namespace BasicFunctionalityTests
 {
-    class GeneralProjectTests
+    class BasicFunctionalityTests
     {
         private IWebDriver driver;
 
@@ -53,101 +53,124 @@ namespace ProjectTests
             driver.Quit();
         }
 
-        //FIRSTCOMMIT
-
-
-        //Check if I am located on the Home Page
+        //Login with correct credentials
         [Test]
-        [Property("HomePage", "1")]
-        public void CheckIfYouAreOnHomePage()
+        public void LoginWithCorrectCredentials()
         {
-            var homePage = new HomePage(driver);
-            homePage.NavigateTo();
-            homePage.AssertYouAreOnHomePage("SOFTUNI BLOG");
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.Login();
+            loginPage.AssertSuccesfullLogin();
+        }
+
+        //Login without email
+        [Test]
+        public void LoginWithOutEmail()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillPassword();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertLoginEmailIsEntered();
+        }
+
+        //Login with incorrect email
+        [Test]
+        public void LoginWithIncorrectEmail()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillIncorrectEmail();
+            loginPage.FillPassword();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertLoginEmailIsIncorrect();
+        }
+
+        //Login without password
+        [Test]
+        public void LoginWithOutPassword()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillEmail();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertLoginPasswordIsEntered();
+        }
+
+        //Login with incorrect password
+        [Test]
+        public void LoginWithIncorrectPassword()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillEmail();
+            loginPage.FillIncorrectPassword();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertLoginPasswordIsIncorrect();
+        }
+
+        [Test]
+        public void CreateArticleWithTitleAndContent()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("TestArticle12345", "asddd");
+            createPage.AssertYouSeeArticle();
 
         }
 
-        //Check if SoftUni Blog Button is working on home page
         [Test]
-        [Property("HomePage", "1")]
-        public void CheckIfSoftUniBlogButtonIsWorkingHomePage()
+        public void CreateArticleWithoutTitle()
         {
-            var homePage = new HomePage(driver);
-            homePage.NavigateTo();
-            homePage.AssertCopyrightIsPresent();
-
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("", "TestWithoutTitle");
+            createPage.AssertYouSeeTitleError();
         }
 
-        //Check if Register Button is working
         [Test]
-        public void CheckIfRegisterButtonIsWorkingHomePage()
+        public void CreateArticleWithoutContent()
         {
-            var homePage = new HomePage(driver);
-            homePage.ClickRegisterButton();
-            homePage.AssertYouAreOnRegistrationPage("Register");
-
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("TestWithoutContent", "");
+            createPage.AssertYouSeeContentError();
         }
 
-        //Check if Log In button works
         [Test]
-        public void CheckIfLoginButtonIsWorkingHomePage()
+        public void CreateArticleWithTitleMoreThanFifthyCharacters()
         {
-            var homePage = new HomePage(driver);
-            homePage.ClickLogInButton();
-            homePage.AssertYouAreOnRegistrationPage("Log in");
-
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd", "asd");
+            createPage.AssertYouSeeCharactersError();
         }
 
-        //Check if "© 2017 - SoftUni Blog" is present on HomePage
         [Test]
-        public void CheckIf2017SoftUniBlogTextIsPresentHomePage()
+        public void CancelCreateArticle()
         {
-            var homePage = new HomePage(driver);
-            homePage.NavigateTo();
-            homePage.AssertCopyrightIsPresent();
-
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.ClickCancelButton();
+            createPage.AssertYouAreOnArticleListPage();
         }
 
+        // User List Page
 
-        
-        //Check if create button is working from Home Page
         [Test]
-        public void CheckIfCreateButtonIsWorkingHomePage()
+        public void DeleteUsers()
         {
-            var homePage = new HomePage(driver);
-            homePage.LogInAndClickCreateButton();
-            homePage.AssertIAmOnCreatePage();
+            var userListPage = new UserListPage(driver);
+            userListPage.LogIn();
+            userListPage.NavigateTo();
+            userListPage.Delete();
+
         }
-
-        //Check if Log off button is working
-        [Test]
-        public void CheckIfLogOffButtonIsWorkingHomePage()
-        {
-            var homePage = new HomePage(driver);
-            homePage.LogInAndOut();
-            homePage.AssertLogOffButtonIsWorking();
-        }
-
-        //Check if Log off button is working
-        [Test]
-        public void CheckIfManageUserButtonIsWorkingHomePage()
-        {
-            var homePage = new HomePage(driver);
-            homePage.LogInAndClickManageButton();
-            homePage.AssertManageButtonIsWorkingOnHomePage();
-        }
-
-        //Check if when Logged off the Create button is not displayed 
-        [Test]
-        public void CheckIfCreateButtonIsNotDisplayedHomePageWhenYouAreNotLoggedIn()
-        {
-            var homePage = new HomePage(driver);
-            homePage.NavigateTo();
-            homePage.AssertCreateButtonIsMissing();
-        }
-
-
-        //ChangeUserPasswordTests
 
         //Create User
         [Test]
@@ -203,360 +226,6 @@ namespace ProjectTests
 
         }
 
-        //Check if change password button is working
-        [Test]
-        public void CheckIfChangeYourPasswordButtonIsWorkingManagePage()
-        {
-            var changePasswordPage = new ChangePasswordPage(driver);
-            changePasswordPage.LogIn();
-            changePasswordPage.ClickChangePasswordButton();
-            changePasswordPage.AssertButtonIsWorking1();
-            changePasswordPage.AssertButtonIsWorking2();
-        }
-
-        //Check if change password button is working
-        [Test]
-        public void SuccessfullPasswordChange()
-        {
-            var changePasswordPage = new ChangePasswordPage(driver);
-            changePasswordPage.LogIn();
-            changePasswordPage.SuccessfullPasswordChange();
-            changePasswordPage.AssertChangePasswordIsSuccessfull();
-        }
-
-        //DeleteUserWithChangedPassword
-        [Test]
-        public void WDeleteTestUser()
-        {
-            var userListPage = new UserListPage(driver);
-            userListPage.LogIn();
-            userListPage.NavigateTo();
-            userListPage.DeleteTestUser();
-        }
-
-
-
-        //Manage Page Tests
-        //Check if Soft Uni Blog button is working when you are on Manage Page
-        [Test]
-        public void CheckIfSoftUniBlogButtonIsWorkingManagePage()
-        {
-            var managePage = new ManagePage(driver);
-            managePage.NavigateToAndClickSoftUniBlogButton();
-            managePage.AssertYouAreOnHomePage();
-        }
-
-        //Check if Soft Uni copyright text is on Manage Page
-        [Test]
-        public void CheckIfCopyrightoftUniBlogTextIsPresentManagePage()
-        {
-            var managePage = new ManagePage(driver);
-            managePage.NavigateTo();
-            managePage.AssertCopyrightIsPresent();
-        }
-
-        //Check if Create button is working on Manage Page
-        [Test]
-        public void CheckIfCreateButtonIsWorkingManagePage()
-        {
-            var managePage = new ManagePage(driver);
-            managePage.ClickCreateButton();
-            managePage.AssertIAmOnCreatePage();
-        }
-
-        //dilyan
-        //Create page
-
-        [Test]
-        public void CheckIfLogOffButtonIsWorkingCreatePage()
-        {
-            var createPage = new CreatePage(driver);
-            createPage.LogIn();
-            createPage.NavigateTo();
-            createPage.LogOffClick();
-            createPage.AssertYouSeeLogInButton();
-        }
-
-        [Test]
-        public void CheckIfManageUserButtonIsWorkingCreatePage()
-        {
-            var createPage = new CreatePage(driver);
-            createPage.LogIn();
-            createPage.NavigateTo();
-            createPage.ManageClick();
-            createPage.AssertYouSeePassword();
-        }
-
-        [Test]
-        public void CreateArticleWithTitleAndContent()
-        {
-            var createPage = new CreatePage(driver);
-            createPage.LogIn();
-            createPage.NavigateTo();
-            createPage.FillTitleContent("TestArticle12345", "asddd");
-            createPage.AssertYouSeeArticle();
-
-        }
-
-        [Test]
-        public void CreateArticleWithoutTitle()
-        {
-            var createPage = new CreatePage(driver);
-            createPage.LogIn();
-            createPage.NavigateTo();
-            createPage.FillTitleContent("","TestWithoutTitle");
-            createPage.AssertYouSeeTitleError();
-        }
-
-        [Test]
-        public void CreateArticleWithoutContent()
-        {
-            var createPage = new CreatePage(driver);
-            createPage.LogIn();
-            createPage.NavigateTo();
-            createPage.FillTitleContent("TestWithoutContent", "");
-            createPage.AssertYouSeeContentError();
-        }
-
-        [Test]
-        public void CreateArticleWithTitleMoreThanFifthyCharacters()
-        {
-            var createPage = new CreatePage(driver);
-            createPage.LogIn();
-            createPage.NavigateTo();
-            createPage.FillTitleContent("asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd", "asd");
-            createPage.AssertYouSeeCharactersError();
-        }
-
-        [Test]
-        public void CancelCreateArticle()
-        {
-            var createPage = new CreatePage(driver);
-            createPage.LogIn();
-            createPage.NavigateTo();
-            createPage.ClickCancelButton();
-            createPage.AssertYouAreOnArticleListPage();
-        }
-
-        //Article tests with logged in user:
-        //ArticleDetailsPage
-        [Test]
-        public void CheckIfEditButtonInArticleIsWorking()
-        {
-            var articleDetailsPage = new ArticleDetailsPage(driver);
-            articleDetailsPage.LogIn();
-            articleDetailsPage.NavigateTo();
-            articleDetailsPage.ClickEditButton();
-            articleDetailsPage.AssertYouAreOnEditPage();
-        }
-
-        [Test]
-        public void CheckIfBackButtonInArticleWorking()
-        {
-            var articleDetailsPage = new ArticleDetailsPage(driver);
-            articleDetailsPage.LogIn();
-            articleDetailsPage.NavigateTo();
-            articleDetailsPage.ClickBackButton();
-            articleDetailsPage.AssertYouAreOnListPage();
-        }
-
-        [Test]
-        public void CheckIfCreateButtonIsWorkingArticlePage()
-        {
-            var articleDetailsPage = new ArticleDetailsPage(driver);
-            articleDetailsPage.LogIn();
-            articleDetailsPage.NavigateTo();
-            articleDetailsPage.ClickCreateButton();
-            articleDetailsPage.AssertYouAreOnCreatePage();
-        }
-
-        [Test]
-        public void CheckIfLogOffButtonIsWorkingArticlePage()
-        {
-            var articleDetailsPage = new ArticleDetailsPage(driver);
-            articleDetailsPage.LogIn();
-            articleDetailsPage.NavigateTo();
-            articleDetailsPage.ClickLogOffButton();
-            articleDetailsPage.AssertYouAreNotLogged();
-        }
-
-        [Test, Order(1)]
-        public void CheckIfManageUserButtonIsWorkingArticlePage()
-        {
-            var articleDetailsPage = new ArticleDetailsPage(driver);
-            articleDetailsPage.LogIn();
-            articleDetailsPage.NavigateTo();
-            articleDetailsPage.ClickManageButton();
-            articleDetailsPage.AssertYouAreOnManagePage();
-        }
-
-        [Test]
-        public void CheckIfErrorMessageIsDisplayedTryingToEditArticleCreatedFromAnotherUser()
-        {
-            var articleDetailsPage = new ArticleDetailsPage(driver);
-            articleDetailsPage.LogIn();
-            articleDetailsPage.ClickLogOffButton();
-            articleDetailsPage.RegisterSecondUser();
-            articleDetailsPage.LogInSecondUser();
-            articleDetailsPage.NavigateTo();
-            articleDetailsPage.ClickEditButton();
-            articleDetailsPage.AssertYouHaveNoPermissions();
-            
-         }
-
-        [Test]
-        public void CheckIfErrorMessageIsDisplayedTryingToDeleteArticleCreatedFromAnotherUser()
-        {
-            var articleDetailsPage = new ArticleDetailsPage(driver);
-         
-            articleDetailsPage.LogInSecondUser();
-            articleDetailsPage.NavigateTo();
-            articleDetailsPage.ClickDeleteButton();
-            articleDetailsPage.AssertYouHaveNoPermissions();
-
-        }
-
-        //Check if Create button is notpresent when logged out on Article Details view
-        [Test]
-        public void CheckIfCreateButtonIsNotDisplyedArticlePage()
-        {
-            var articleNodeView = new ArticleDetailsPage(driver);
-            articleNodeView.NavigateToFirstArticle();
-            articleNodeView.AssertCreateButtonIsMissing();
-        }
-
-        //Check if Login button is working on Article Details view page
-        [Test]
-        public void CheckIfEditButtonInArticleIsRedirectingToLoginPage()
-        {
-            var articleNodeView = new ArticleDetailsPage(driver);
-            articleNodeView.NavigateToFirstArticle();
-            articleNodeView.ClickLoginButton();
-            articleNodeView.AssertYouAreOnLoginPage("Log in");
-        }
-
-        //Check if SoftUni Blog button is working on Article Details view page
-        [Test]
-        public void CheckIfSoftUniBlogButtonIsWorkingArticlePage()
-        {
-            var articleNodeView = new ArticleDetailsPage(driver);
-            articleNodeView.NavigateToFirstArticle();
-            articleNodeView.ClickSoftuniBlogButton();
-            articleNodeView.AssertYouAreOnHomePage("SOFTUNI BLOG");
-        }
-
-        //Check if SoftUni Blog button is working on Article Details view page
-        [Test]
-        public void CheckIf2017SoftUniBlogTextIsPresentArticlePage()
-        {
-            var articleNodeView = new ArticleDetailsPage(driver);
-            articleNodeView.NavigateToFirstArticle();
-            articleNodeView.ClickSoftuniBlogButton();
-            articleNodeView.AssertYouAreOnHomePage("SOFTUNI BLOG");
-        }
-
-
-        // ArticleEditPage
-        [Test]
-        public void CheckIfTitleIsEditableInArticleEditMode()
-        {
-            var articleEditPage = new ArticleEditPage(driver);
-            articleEditPage.LogIn();
-            articleEditPage.NavigateTo();
-            articleEditPage.EditTitle();
-            articleEditPage.AssertChangedTitle();
-        }
-
-        [Test]
-        public void CheckIfContentIsEditableInArticleEditMode()
-        {
-            var articleEditPage = new ArticleEditPage(driver);
-            articleEditPage.LogIn();
-            articleEditPage.NavigateTo();
-            articleEditPage.EditContent("Edit content");
-            articleEditPage.EditButtonClick();
-            articleEditPage.AssertChangedContent();
-        }
-
-        [Test]
-        public void CheckIfCancelButtonInArticleEditModeIsWorking()
-        {
-            var articleEditPage = new ArticleEditPage(driver);
-            articleEditPage.LogIn();
-            articleEditPage.NavigateTo();
-            articleEditPage.EditContent("This should not be visible");
-            articleEditPage.CancelButtonClick();
-            articleEditPage.AssertCancel();
-        }
-
-        // ArticleDeletePage
-
-        [Test]
-        public void CheckIfTitleIsEditableInArticleDeleteModearticle()
-        {
-            var articleDeletePage = new ArticleDeletePage(driver);
-            articleDeletePage.LogIn();
-            articleDeletePage.NavigateTo();
-            articleDeletePage.EditTitle();
-            articleDeletePage.AssertTitleIsNotChanged();
-        }
-
-        [Test]
-        public void CheckIfContentIsEditableInArticleDeleteMode()
-        {
-            var articleDeletePage = new ArticleDeletePage(driver);
-            articleDeletePage.LogIn();
-            articleDeletePage.NavigateTo();
-            articleDeletePage.EditContent();
-            articleDeletePage.AssertContentIsNotChanged();
-        }
-
-        [Test]
-        public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
-        {
-            var articleDeletePage = new ArticleDeletePage(driver);
-            articleDeletePage.LogIn();
-            articleDeletePage.NavigateTo();
-            articleDeletePage.CancelButtonClick();
-            articleDeletePage.AssertYouAreOnListPage();
-        }
-
-        [Test]
-        public void CheckIfDeleteButtonInArticleDeleteModeIsWorking()
-        {
-            var articleDeletePage = new ArticleDeletePage(driver);
-            articleDeletePage.LogIn();
-            articleDeletePage.NavigateTo();
-            articleDeletePage.DeleteButtonClick();
-            articleDeletePage.AssertArticleIsDeleted();
-           }
-
-        // User List Page
-
-        [Test]
-        public void DeleteUsers()
-        {
-            var userListPage = new UserListPage(driver);
-            userListPage.LogIn();
-            userListPage.NavigateTo();
-            userListPage.Delete();
-   
-        }
-
-
-
-        //Registration page tests by Tsvetomir Pavlov
-        //Register with correct credentials
-        [Test]
-        public void RegisterWithCorrectCredentials()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.Register();
-            registrationPage.AssertSuccessRegistration();
-        }
-
-        //Register without email
         [Test]
         public void RegisterWithOutEmail()
         {
@@ -637,190 +306,27 @@ namespace ProjectTests
             registrationPage.AssertPasswordMatch();
         }
 
-        //Check if "Register" submit button is working on register page
+        // ArticleEditPage
         [Test]
-        public void CheckIfLoginSubmitButtonIsWorkingResgisterPage()
+        public void CheckIfTitleIsEditableInArticleEditMode()
         {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.Register();
-            registrationPage.AssertSuccessRegistration();
+            var articleEditPage = new ArticleEditPage(driver);
+            articleEditPage.LogIn();
+            articleEditPage.NavigateTo();
+            articleEditPage.EditTitle();
+            articleEditPage.AssertChangedTitle();
         }
 
-        //Check if "SoftUniBlog" button is working on register page
         [Test]
-        public void CheckIfSoftUniBlogButtonIsWorkingRegisterPage()
+        public void CheckIfContentIsEditableInArticleEditMode()
         {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.ClickSoftUniBlogButton();
-            registrationPage.AssertSoftUniBlogButtonIsWorking();
+            var articleEditPage = new ArticleEditPage(driver);
+            articleEditPage.LogIn();
+            articleEditPage.NavigateTo();
+            articleEditPage.EditContent("Edit content");
+            articleEditPage.EditButtonClick();
+            articleEditPage.AssertChangedContent();
         }
 
-        //Check if "Login" button is working on register page
-        [Test]
-        public void CheckIfLoginButtonIsWorkingRegisterPage()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.ClickLoginButton();
-            registrationPage.AssertLoginButtonIsWorking();
-        }
-
-        //Check if "Register" button is working on register page
-        [Test]
-        public void CheckIfRegisterButtonIsWorkingRegisterPage()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.ClickRegisterButton();
-            registrationPage.AssertRegisterButtonIsWorking();
-        }
-
-        //Check if "©2017SoftUniBlog" text is present on register page
-        [Test]
-        public void CheckIf2017SoftUniBlogTextIsPresentRegisterPage()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.AssertCopyrightIsPresent();
-        }
-
-
-        //Check if "Create" button is not displayed on register page
-        [Test]
-        public void CheckIfCreateButtonIsNotDisplyedRegisterPage()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.AssertCreateButtonIsNotPresent();
-        }
-        //Login page tests by Tsvetomir Pavlov
-        //Login with correct credentials
-        [Test]
-        public void LoginWithCorrectCredentials()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.Login();
-            loginPage.AssertSuccesfullLogin();
-        }
-
-        //Login without email
-        [Test]
-        public void LoginWithOutEmail()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.FillPassword();
-            loginPage.ClickLoginButtonSubmit();
-            loginPage.AssertLoginEmailIsEntered();
-        }
-
-        //Login with incorrect email
-        [Test]
-        public void LoginWithIncorrectEmail()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.FillIncorrectEmail();
-            loginPage.FillPassword();
-            loginPage.ClickLoginButtonSubmit();
-            loginPage.AssertLoginEmailIsIncorrect();
-        }
-
-        //Login without password
-        [Test]
-        public void LoginWithOutPassword()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.FillEmail();
-            loginPage.ClickLoginButtonSubmit();
-            loginPage.AssertLoginPasswordIsEntered();
-        }
-
-        //Login with incorrect password
-        [Test]
-        public void LoginWithIncorrectPassword()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.FillEmail();
-            loginPage.FillIncorrectPassword();
-            loginPage.ClickLoginButtonSubmit();
-            loginPage.AssertLoginPasswordIsIncorrect();
-        }
-
-        //Check if "Login" submit button is working on login page
-        [Test]
-        public void CheckIfLoginSubmitButtonIsWorkingLoginPage()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.Login();
-            loginPage.AssertSuccesfullLogin();
-        }
-
-        //Check if "©2017SoftUniBlog" text is present in login page
-        [Test]
-        public void CheckIf2017SoftUniBlogTextIsPresentLogInPage()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.AssertCopyrightIsPresent();
-        }
-
-        //Check if "Login" button is working on login page
-        [Test]
-        public void CheckIfLoginButtonIsWorkingLoginPage()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.ClickLoginButton();
-            loginPage.AssertLoginButtonIsWorking();
-        }
-
-        //Check if "Register" button is working on login page
-        [Test]
-        public void CheckIfRegisterButtonIsWorkingLoginPage()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.ClickRegisterButton();
-            loginPage.AssertRegisterButtonIsWorking();
-        }
-
-        //Check if "Remeber me" checkbox is working on login page 
-        [Test]
-        public void CheckIfRememberMeCheckBoxIsWorkingLoginPage()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.FillEmail();
-            loginPage.FillPassword();
-            loginPage.SelectCheckbox();
-            loginPage.ClickLoginButtonSubmit();
-            loginPage.AssertCheckBoxIsSelected();
-        }
-
-        //Check if "SoftUniBlog" button is working on login page 
-        [Test]
-        public void CheckIfSoftUniBlogButtonIsWorkingLogInPage()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.ClickSoftUniBlogButton();
-            loginPage.AssertSoftUniBlogButtonIsWorking();
-        }
-
-        //Check if "Create" button is not displayed on login page 
-        [Test]
-        public void CheckIfCreateButtonIsNotDisplyedLoginPage()
-        {
-            var loginPage = new LoginPage(driver);
-            loginPage.NavigateTo();
-            loginPage.AssertCreateButtonIsNotPresent();
-        }
     }
 }
