@@ -93,6 +93,9 @@
     <Compile Include="Pages\ArticleEditPage\ArticleEditPageAsserter.cs" />
     <Compile Include="Pages\ArticleEditPage\ArticleEditPageMap.cs" />
     <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\ChangePasswordPage\ChangePasswordPage.cs" />
+    <Compile Include="Pages\ChangePasswordPage\ChangePasswordPageAsserter.cs" />
+    <Compile Include="Pages\ChangePasswordPage\ChangePasswordPageMap.cs" />
     <Compile Include="Pages\CreatePage\CreatePage.cs" />
     <Compile Include="Pages\CreatePage\CreatePageAsserter.cs" />
     <Compile Include="Pages\CreatePage\CreatePageMap.cs" />
@@ -125,9 +128,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.29.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.29.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

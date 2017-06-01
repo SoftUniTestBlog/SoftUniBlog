@@ -1,0 +1,1 @@
+ProjectTests.GeneralProjectTests.CreateArticleWithTitleAndContent        D:\LastOne\SoftUniBlog\BasicFunctionalityTests\bin\Debug            0
