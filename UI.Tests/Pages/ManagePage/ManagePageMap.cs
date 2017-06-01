@@ -83,5 +83,14 @@ namespace DesignPattern.Pages.ManagePage
                 return Driver.FindElement(By.CssSelector("h2"));
             }
         }
+
+        public IWebElement LogOffButton
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.LinkText("Log off")));
+                return Driver.FindElement(By.LinkText("Log off"));
+            }
+        }
     }
 }

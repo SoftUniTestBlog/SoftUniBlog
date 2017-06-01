@@ -131,7 +131,44 @@ namespace UITests
             homePage.AssertCreateButtonIsMissing();
         }
 
-        
+
+        //Manage Page Tests
+        //Check if Soft Uni Blog button is working when you are on Manage Page
+        [Test]
+        public void CheckIfSoftUniBlogButtonIsWorkingManagePage()
+        {
+            var managePage = new ManagePage(driver);
+            managePage.NavigateToAndClickSoftUniBlogButton();
+            managePage.AssertYouAreOnHomePage();
+        }
+
+        //Check if Soft Uni copyright text is on Manage Page
+        [Test]
+        public void CheckIfCopyrightoftUniBlogTextIsPresentManagePage()
+        {
+            var managePage = new ManagePage(driver);
+            managePage.NavigateTo();
+            managePage.AssertCopyrightIsPresent();
+        }
+
+        //Check if Create button is working on Manage Page
+        [Test]
+        public void CheckIfCreateButtonIsWorkingManagePage()
+        {
+            var managePage = new ManagePage(driver);
+            managePage.ClickCreateButton();
+            managePage.AssertIAmOnCreatePage();
+        }
+
+        //Check if Log Off button is working on Manage Page
+        [Test]
+        public void CheckIfLogOffButtonIsWorkingManagePage()
+        {
+            var managePage = new ManagePage(driver);
+            managePage.NavigateTo();
+            managePage.ClickLogOffButton();
+            managePage.AssertIAmLoggedOff();
+        }
 
         //dilyan
         //Create page
@@ -251,6 +288,45 @@ namespace UITests
             articleEditPage.AssertCancel();
         }
 
+        //Check if Create button is notpresent when logged out on Article Details view
+        [Test]
+        public void CheckIfCreateButtonIsNotDisplyedArticlePage()
+        {
+            var articleNodeView = new ArticleDetailsPage(driver);
+            articleNodeView.NavigateToFirstArticle();
+            articleNodeView.AssertCreateButtonIsMissing();
+        }
+
+        //Check if Login button is working on Article Details view page
+        [Test]
+        public void CheckIfEditButtonInArticleIsRedirectingToLoginPage()
+        {
+            var articleNodeView = new ArticleDetailsPage(driver);
+            articleNodeView.NavigateToFirstArticle();
+            articleNodeView.ClickLoginButton();
+            articleNodeView.AssertYouAreOnLoginPage("Log in");
+        }
+
+        //Check if SoftUni Blog button is working on Article Details view page
+        [Test]
+        public void CheckIfSoftUniBlogButtonIsWorkingArticlePage()
+        {
+            var articleNodeView = new ArticleDetailsPage(driver);
+            articleNodeView.NavigateToFirstArticle();
+            articleNodeView.ClickSoftuniBlogButton();
+            articleNodeView.AssertYouAreOnHomePage("SOFTUNI BLOG");
+        }
+
+        //Check if SoftUni Blog button is working on Article Details view page
+        [Test]
+        public void CheckIf2017SoftUniBlogTextIsPresentArticlePage()
+        {
+            var articleNodeView = new ArticleDetailsPage(driver);
+            articleNodeView.NavigateToFirstArticle();
+            articleNodeView.ClickSoftuniBlogButton();
+            articleNodeView.AssertYouAreOnHomePage("SOFTUNI BLOG");
+        }
+
         // ArticleDeletePage
 
         [Test]
@@ -304,5 +380,119 @@ namespace UITests
             userListPage.Delete();
 
         }
+
+        //Registration UI Tests
+        //Check if "Register" submit button is working on register page
+        [Test]
+        public void CheckIfLoginSubmitButtonIsWorkingResgisterPage()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.Register();
+            registrationPage.AssertSuccessRegistration();
+        }
+
+        //Check if "SoftUniBlog" button is working on register page
+        [Test]
+        public void CheckIfSoftUniBlogButtonIsWorkingRegisterPage()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.ClickSoftUniBlogButton();
+            registrationPage.AssertSoftUniBlogButtonIsWorking();
+        }
+
+        //Check if "Login" button is working on register page
+        [Test]
+        public void CheckIfLoginButtonIsWorkingRegisterPage()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.ClickLoginButton();
+            registrationPage.AssertLoginButtonIsWorking();
+        }
+
+        //Check if "Register" button is working on register page
+        [Test]
+        public void CheckIfRegisterButtonIsWorkingRegisterPage()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.ClickRegisterButton();
+            registrationPage.AssertRegisterButtonIsWorking();
+        }
+
+        //Check if "©2017SoftUniBlog" text is present on register page
+        [Test]
+        public void CheckIf2017SoftUniBlogTextIsPresentRegisterPage()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.AssertCopyrightIsPresent();
+        }
+
+
+        //Check if "Create" button is not displayed on register page
+        [Test]
+        public void CheckIfCreateButtonIsNotDisplyedRegisterPage()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            registrationPage.NavigateTo();
+            registrationPage.AssertCreateButtonIsNotPresent();
+        }
+
+        //Login UI Tests
+        //Check if "Login" submit button is working on login page
+        [Test]
+        public void CheckIfLoginSubmitButtonIsWorkingLoginPage()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.Login();
+            loginPage.AssertSuccesfullLogin();
+        }
+
+        //Check if "©2017SoftUniBlog" text is present in login page
+        [Test]
+        public void CheckIf2017SoftUniBlogTextIsPresentLogInPage()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.AssertCopyrightIsPresent();
+        }
+
+        //Check if "Login" button is working on login page
+        [Test]
+        public void CheckIfLoginButtonIsWorkingLoginPage()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.ClickLoginButton();
+            loginPage.AssertLoginButtonIsWorking();
+        }
+
+        //Check if "Register" button is working on login page
+        [Test]
+        public void CheckIfRegisterButtonIsWorkingLoginPage()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.ClickRegisterButton();
+            loginPage.AssertRegisterButtonIsWorking();
+        }
+
+        //Check if "Remeber me" checkbox is working on login page 
+        [Test]
+        public void CheckIfRememberMeCheckBoxIsWorkingLoginPage()
+        {
+            var loginPage = new LoginPage(driver);
+            loginPage.NavigateTo();
+            loginPage.FillEmail();
+            loginPage.FillPassword();
+            loginPage.SelectCheckbox();
+            loginPage.ClickLoginButtonSubmit();
+            loginPage.AssertCheckBoxIsSelected();
+        }
+
     }
 }

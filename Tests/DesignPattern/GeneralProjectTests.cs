@@ -264,6 +264,17 @@ namespace ProjectTests
             managePage.AssertIAmOnCreatePage();
         }
 
+        //Check if Log Off button is working on Manage Page
+        [Test]
+        public void CheckIfLogOffButtonIsWorkingManagePage()
+        {
+            var managePage = new ManagePage(driver);
+            managePage.NavigateTo();
+            managePage.ClickLogOffButton();
+            managePage.AssertIAmLoggedOff();
+        }
+
+
         //dilyan
         //Create page
 

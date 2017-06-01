@@ -27,5 +27,11 @@ namespace DesignPattern.Pages.ManagePage
         {
             Assert.AreEqual("Create Article", page.CreatePageLogo.Text);
         }
+
+        //Check if you are on create page on Manage Page
+        public static void AssertIAmLoggedOff(this ManagePage page)
+        {
+            Assert.AreEqual("Log in", page.LoginButton.Text);
+        }
     }
 }

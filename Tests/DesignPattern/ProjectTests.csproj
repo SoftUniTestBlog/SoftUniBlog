@@ -108,9 +108,9 @@
     <Compile Include="Pages\ManagePage\ManagePage.cs" />
     <Compile Include="Pages\ManagePage\ManagePageAsserter.cs" />
     <Compile Include="Pages\ManagePage\ManagePageMap.cs" />
-    <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
-    <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
-    <Compile Include="Pages\RegistrationPage\RegistrationPageMap.cs" />
+    <Compile Include="Pages\ManagePage\RegistrationPage\RegistrationPage.cs" />
+    <Compile Include="Pages\ManagePage\RegistrationPage\RegistrationPageAsserter.cs" />
+    <Compile Include="Pages\ManagePage\RegistrationPage\RegistrationPageMap.cs" />
     <Compile Include="Pages\UserListPage\UserListPage.cs" />
     <Compile Include="Pages\UserListPage\UserListPageAsserter.cs" />
     <Compile Include="Pages\UserListPage\UserListPageMap.cs" />

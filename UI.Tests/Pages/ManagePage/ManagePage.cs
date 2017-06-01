@@ -30,7 +30,7 @@ namespace DesignPattern.Pages.ManagePage
             NavigateToHomePage();
             ClickLogInButton();
             EmailFieldLogin.Clear();
-            EmailFieldLogin.SendKeys("asd@abv.bg");
+            EmailFieldLogin.SendKeys("test@test.test");
             PasswordFieldLogin.Clear();
             PasswordFieldLogin.SendKeys("1234");
             LoginSubmitButton.Click();
@@ -53,6 +53,11 @@ namespace DesignPattern.Pages.ManagePage
         {
             NavigateTo();
             CreateButton.Click();
+        }
+
+        public void ClickLogOffButton()
+        {
+            LogOffButton.Click();
         }
     }
 }

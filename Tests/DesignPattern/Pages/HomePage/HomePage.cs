@@ -51,7 +51,7 @@ namespace ProjectTests.Pages.HomePage
             NavigateTo();
             ClickLogInButton();
             EmailFieldLogin.Clear();
-            EmailFieldLogin.SendKeys("asd@abv.bg");
+            EmailFieldLogin.SendKeys("test@test.test");
             PasswordFieldLogin.Clear();
             PasswordFieldLogin.SendKeys("1234");
             LoginSubmitButton.Click();
