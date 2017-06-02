@@ -1,0 +1,1 @@
+UITests.GeneralProjectUITests.CheckIfManageUserButtonIsWorkingArticlePage        D:\QaProject\SoftUniBlog\UI.Tests\bin\Debug            0

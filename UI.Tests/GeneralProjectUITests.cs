@@ -53,9 +53,29 @@ namespace UITests
             driver.Quit();
         }
 
+        //Create User
+        [Test, Order(0)]
+        public void ACreateTestUserTest()
+        {
+            var changePasswordPage = new ChangePasswordPage(driver);
+
+            changePasswordPage.Register();
+        }
+
+        [Test, Order(1)]
+        public void CreateArticleWithTitleAndContent()
+        {
+            var createPage = new CreatePage(driver);
+            createPage.LogIn();
+            createPage.NavigateTo();
+            createPage.FillTitleContent("TestArticle12345", "Content");
+            createPage.AssertYouSeeArticle();
+
+        }
+
         //Check if I am located on the Home Page
-        [Test]
-        [Property("HomePage", "1")]
+        [Test, Order(2)]
+
         public void CheckIfYouAreOnHomePage()
         {
             var homePage = new HomePage(driver);
@@ -65,8 +85,8 @@ namespace UITests
         }
 
         //Check if SoftUni Blog Button is working on home page
-        [Test]
-        [Property("HomePage", "1")]
+        [Test, Order(3)]
+
         public void CheckIfSoftUniBlogButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -76,7 +96,7 @@ namespace UITests
         }
 
         //Check if Register Button is working
-        [Test]
+        [Test, Order(4)]
         public void CheckIfRegisterButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -86,7 +106,7 @@ namespace UITests
         }
 
         //Check if Log In button works
-        [Test]
+        [Test, Order(5)]
         public void CheckIfLoginButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -96,7 +116,7 @@ namespace UITests
         }
 
         //Check if create button is working from Home Page
-        [Test]
+        [Test, Order(6)]
         public void CheckIfCreateButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -105,7 +125,7 @@ namespace UITests
         }
 
         //Check if Log off button is working
-        [Test]
+        [Test, Order(7)]
         public void CheckIfLogOffButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -114,7 +134,7 @@ namespace UITests
         }
 
         //Check if Log off button is working
-        [Test]
+        [Test, Order(8)]
         public void CheckIfManageUserButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -123,7 +143,7 @@ namespace UITests
         }
 
         //Check if when Logged off the Create button is not displayed 
-        [Test]
+        [Test, Order(9)]
         public void CheckIfCreateButtonIsNotDisplayedHomePageWhenYouAreNotLoggedIn()
         {
             var homePage = new HomePage(driver);
@@ -134,7 +154,7 @@ namespace UITests
 
         //Manage Page Tests
         //Check if Soft Uni Blog button is working when you are on Manage Page
-        [Test]
+        [Test, Order(9)]
         public void CheckIfSoftUniBlogButtonIsWorkingManagePage()
         {
             var managePage = new ManagePage(driver);
@@ -143,7 +163,7 @@ namespace UITests
         }
 
         //Check if Soft Uni copyright text is on Manage Page
-        [Test]
+        [Test, Order(10)]
         public void CheckIfCopyrightoftUniBlogTextIsPresentManagePage()
         {
             var managePage = new ManagePage(driver);
@@ -152,7 +172,7 @@ namespace UITests
         }
 
         //Check if Create button is working on Manage Page
-        [Test]
+        [Test, Order(11)]
         public void CheckIfCreateButtonIsWorkingManagePage()
         {
             var managePage = new ManagePage(driver);
@@ -161,7 +181,7 @@ namespace UITests
         }
 
         //Check if Log Off button is working on Manage Page
-        [Test]
+        [Test, Order(12)]
         public void CheckIfLogOffButtonIsWorkingManagePage()
         {
             var managePage = new ManagePage(driver);
@@ -173,7 +193,7 @@ namespace UITests
         //dilyan
         //Create page
 
-        [Test]
+        [Test, Order(13)]
         public void CheckIfLogOffButtonIsWorkingCreatePage()
         {
             var createPage = new CreatePage(driver);
@@ -183,7 +203,7 @@ namespace UITests
             createPage.AssertYouSeeLogInButton();
         }
 
-        [Test]
+        [Test, Order(14)]
         public void CheckIfManageUserButtonIsWorkingCreatePage()
         {
             var createPage = new CreatePage(driver);
@@ -193,10 +213,10 @@ namespace UITests
             createPage.AssertYouSeePassword();
         }
 
-        
+
         //Article tests with logged in user:
         //ArticleDetailsPage
-        [Test]
+        [Test, Order(15)]
         public void CheckIfEditButtonInArticleIsWorking()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -206,7 +226,7 @@ namespace UITests
             articleDetailsPage.AssertYouAreOnEditPage();
         }
 
-        [Test]
+        [Test, Order(16)]
         public void CheckIfBackButtonInArticleWorking()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -216,7 +236,7 @@ namespace UITests
             articleDetailsPage.AssertYouAreOnListPage();
         }
 
-        [Test]
+        [Test, Order(17)]
         public void CheckIfCreateButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -226,7 +246,7 @@ namespace UITests
             articleDetailsPage.AssertYouAreOnCreatePage();
         }
 
-        [Test]
+        [Test, Order(18)]
         public void CheckIfLogOffButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -236,7 +256,7 @@ namespace UITests
             articleDetailsPage.AssertYouAreNotLogged();
         }
 
-        [Test, Order(1)]
+        [Test, Order(19)]
         public void CheckIfManageUserButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -246,21 +266,20 @@ namespace UITests
             articleDetailsPage.AssertYouAreOnManagePage();
         }
 
-        [Test]
+        [Test, Order(20)]
         public void CheckIfErrorMessageIsDisplayedTryingToEditArticleCreatedFromAnotherUser()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
             articleDetailsPage.LogIn();
             articleDetailsPage.ClickLogOffButton();
             articleDetailsPage.RegisterSecondUser();
-            articleDetailsPage.LogInSecondUser();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickEditButton();
             articleDetailsPage.AssertYouHaveNoPermissions();
 
         }
 
-        [Test]
+        [Test, Order(21)]
         public void CheckIfErrorMessageIsDisplayedTryingToDeleteArticleCreatedFromAnotherUser()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -272,12 +291,12 @@ namespace UITests
 
         }
 
-        
 
 
-        
 
-        [Test]
+
+
+        [Test, Order(22)]
         public void CheckIfCancelButtonInArticleEditModeIsWorking()
         {
             var articleEditPage = new ArticleEditPage(driver);
@@ -289,7 +308,7 @@ namespace UITests
         }
 
         //Check if Create button is notpresent when logged out on Article Details view
-        [Test]
+        [Test, Order(23)]
         public void CheckIfCreateButtonIsNotDisplyedArticlePage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
@@ -298,7 +317,7 @@ namespace UITests
         }
 
         //Check if Login button is working on Article Details view page
-        [Test]
+        [Test, Order(24)]
         public void CheckIfEditButtonInArticleIsRedirectingToLoginPage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
@@ -308,7 +327,7 @@ namespace UITests
         }
 
         //Check if SoftUni Blog button is working on Article Details view page
-        [Test]
+        [Test, Order(25)]
         public void CheckIfSoftUniBlogButtonIsWorkingArticlePage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
@@ -318,7 +337,7 @@ namespace UITests
         }
 
         //Check if SoftUni Blog button is working on Article Details view page
-        [Test]
+        [Test, Order(26)]
         public void CheckIf2017SoftUniBlogTextIsPresentArticlePage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
@@ -329,7 +348,7 @@ namespace UITests
 
         // ArticleDeletePage
 
-        [Test]
+        [Test, Order(27)]
         public void CheckIfTitleIsEditableInArticleDeleteModearticle()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
@@ -339,7 +358,7 @@ namespace UITests
             articleDeletePage.AssertTitleIsNotChanged();
         }
 
-        [Test]
+        [Test, Order(28)]
         public void CheckIfContentIsEditableInArticleDeleteMode()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
@@ -349,7 +368,7 @@ namespace UITests
             articleDeletePage.AssertContentIsNotChanged();
         }
 
-        [Test]
+        [Test, Order(29)]
         public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
@@ -359,7 +378,7 @@ namespace UITests
             articleDeletePage.AssertYouAreOnListPage();
         }
 
-        [Test]
+        [Test, Order(40)]
         public void CheckIfDeleteButtonInArticleDeleteModeIsWorking()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
@@ -371,7 +390,7 @@ namespace UITests
 
         // User List Page
 
-        [Test]
+        [Test, Order(41)]
         public void DeleteUsers()
         {
             var userListPage = new UserListPage(driver);
@@ -382,18 +401,10 @@ namespace UITests
         }
 
         //Registration UI Tests
-        //Check if "Register" submit button is working on register page
-        [Test]
-        public void CheckIfLoginSubmitButtonIsWorkingResgisterPage()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.Register();
-            registrationPage.AssertSuccessRegistration();
-        }
+
 
         //Check if "SoftUniBlog" button is working on register page
-        [Test]
+        [Test, Order(30)]
         public void CheckIfSoftUniBlogButtonIsWorkingRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -403,7 +414,7 @@ namespace UITests
         }
 
         //Check if "Login" button is working on register page
-        [Test]
+        [Test, Order(31)]
         public void CheckIfLoginButtonIsWorkingRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -413,7 +424,7 @@ namespace UITests
         }
 
         //Check if "Register" button is working on register page
-        [Test]
+        [Test, Order(32)]
         public void CheckIfRegisterButtonIsWorkingRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -423,7 +434,7 @@ namespace UITests
         }
 
         //Check if "©2017SoftUniBlog" text is present on register page
-        [Test]
+        [Test, Order(33)]
         public void CheckIf2017SoftUniBlogTextIsPresentRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -433,7 +444,7 @@ namespace UITests
 
 
         //Check if "Create" button is not displayed on register page
-        [Test]
+        [Test, Order(34)]
         public void CheckIfCreateButtonIsNotDisplyedRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -443,7 +454,7 @@ namespace UITests
 
         //Login UI Tests
         //Check if "Login" submit button is working on login page
-        [Test]
+        [Test, Order(35)]
         public void CheckIfLoginSubmitButtonIsWorkingLoginPage()
         {
             var loginPage = new LoginPage(driver);
@@ -453,7 +464,7 @@ namespace UITests
         }
 
         //Check if "©2017SoftUniBlog" text is present in login page
-        [Test]
+        [Test, Order(36)]
         public void CheckIf2017SoftUniBlogTextIsPresentLogInPage()
         {
             var loginPage = new LoginPage(driver);
@@ -462,7 +473,7 @@ namespace UITests
         }
 
         //Check if "Login" button is working on login page
-        [Test]
+        [Test, Order(37)]
         public void CheckIfLoginButtonIsWorkingLoginPage()
         {
             var loginPage = new LoginPage(driver);
@@ -472,7 +483,7 @@ namespace UITests
         }
 
         //Check if "Register" button is working on login page
-        [Test]
+        [Test, Order(38)]
         public void CheckIfRegisterButtonIsWorkingLoginPage()
         {
             var loginPage = new LoginPage(driver);
@@ -482,7 +493,7 @@ namespace UITests
         }
 
         //Check if "Remeber me" checkbox is working on login page 
-        [Test]
+        [Test, Order(39)]
         public void CheckIfRememberMeCheckBoxIsWorkingLoginPage()
         {
             var loginPage = new LoginPage(driver);

@@ -1,0 +1,1 @@
+ProjectTests.GeneralProjectTests.CheckIfDeleteButtonInArticleDeleteModeIsWorking        D:\QaProject\SoftUniBlog\Tests\DesignPattern\bin\Debug            0

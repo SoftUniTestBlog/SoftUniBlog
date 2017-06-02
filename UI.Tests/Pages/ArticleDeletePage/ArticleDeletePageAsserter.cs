@@ -25,7 +25,7 @@ namespace DesignPattern.Pages.ArticleDeletePage
         //Check if content is changed
         public static void AssertYouAreOnListPage(this ArticleDeletePage page)
         {
-            Assert.AreEqual("TestArticle12345-EditTitle", page.FirstArticle.Text);
+            Assert.AreEqual("TestArticle12345", page.FirstArticle.Text);
         }
 
         //Check if content is deleted

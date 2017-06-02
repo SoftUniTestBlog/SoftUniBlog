@@ -1,0 +1,1 @@
+UITests.GeneralProjectUITests.CheckIfCreateButtonIsNotDisplyedArticlePage        D:\QaProject\SoftUniBlog\UI.Tests\bin\Debug            0

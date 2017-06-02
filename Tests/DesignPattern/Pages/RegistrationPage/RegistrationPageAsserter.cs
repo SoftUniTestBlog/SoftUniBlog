@@ -55,7 +55,7 @@ namespace DesignPattern.Pages.RegistrationPage
         //Check if SoftUniBlog button is working and redirecting to Home Page
         public static void AssertSoftUniBlogButtonIsWorking(this RegistrationPage page)
         {
-            Assert.AreEqual("Edit title", page.HomePage.Text);
+            Assert.AreEqual("TestArticle12345-EditTitle", page.HomePage.Text);
         }
 
         //Check if Login button is working and redirecting to Login Page

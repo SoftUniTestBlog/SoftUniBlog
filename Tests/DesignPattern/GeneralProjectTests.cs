@@ -44,11 +44,11 @@ namespace ProjectTests
                 {
                     File.Delete(relative + filename);
                 }
-                File.WriteAllText(relative+ filename, TestContext.CurrentContext.Test.FullName + "        " + TestContext.CurrentContext.WorkDirectory + "            " + TestContext.CurrentContext.Result.PassCount);
+                File.WriteAllText(relative + filename, TestContext.CurrentContext.Test.FullName + "        " + TestContext.CurrentContext.WorkDirectory + "            " + TestContext.CurrentContext.Result.PassCount);
 
                 var screenshot = ((ITakesScreenshot)this.driver).GetScreenshot();
                 screenshot.SaveAsFile(relative + filename + TestContext.CurrentContext.Test.Name + ".jpg", ScreenshotImageFormat.Jpeg);
-                
+
             }
             driver.Quit();
         }
@@ -57,8 +57,8 @@ namespace ProjectTests
 
 
         //Check if I am located on the Home Page
-        [Test]
-        [Property("HomePage", "1")]
+        [Test, Order(10)]
+
         public void CheckIfYouAreOnHomePage()
         {
             var homePage = new HomePage(driver);
@@ -68,8 +68,8 @@ namespace ProjectTests
         }
 
         //Check if SoftUni Blog Button is working on home page
-        [Test]
-        [Property("HomePage", "1")]
+        [Test, Order(2)]
+
         public void CheckIfSoftUniBlogButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -79,7 +79,7 @@ namespace ProjectTests
         }
 
         //Check if Register Button is working
-        [Test]
+        [Test, Order(3)]
         public void CheckIfRegisterButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -89,7 +89,7 @@ namespace ProjectTests
         }
 
         //Check if Log In button works
-        [Test]
+        [Test, Order(4)]
         public void CheckIfLoginButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -99,7 +99,7 @@ namespace ProjectTests
         }
 
         //Check if "© 2017 - SoftUni Blog" is present on HomePage
-        [Test]
+        [Test, Order(5)]
         public void CheckIf2017SoftUniBlogTextIsPresentHomePage()
         {
             var homePage = new HomePage(driver);
@@ -109,9 +109,9 @@ namespace ProjectTests
         }
 
 
-        
+
         //Check if create button is working from Home Page
-        [Test]
+        [Test, Order(6)]
         public void CheckIfCreateButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -120,7 +120,7 @@ namespace ProjectTests
         }
 
         //Check if Log off button is working
-        [Test]
+        [Test, Order(7)]
         public void CheckIfLogOffButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -129,7 +129,7 @@ namespace ProjectTests
         }
 
         //Check if Log off button is working
-        [Test]
+        [Test, Order(8)]
         public void CheckIfManageUserButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
@@ -138,7 +138,7 @@ namespace ProjectTests
         }
 
         //Check if when Logged off the Create button is not displayed 
-        [Test]
+        [Test, Order(9)]
         public void CheckIfCreateButtonIsNotDisplayedHomePageWhenYouAreNotLoggedIn()
         {
             var homePage = new HomePage(driver);
@@ -150,7 +150,7 @@ namespace ProjectTests
         //ChangeUserPasswordTests
 
         //Create User
-        [Test]
+        [Test, Order(1)]
         public void ACreateTestUserTest()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -160,7 +160,7 @@ namespace ProjectTests
 
 
         //Enter an incorrect current password
-        [Test]
+        [Test, Order(11)]
         public void EnterIncorrectCurrentPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -171,7 +171,7 @@ namespace ProjectTests
         }
 
         //Do not anter a new password
-        [Test]
+        [Test, Order(12)]
         public void EnterEmptyNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -182,7 +182,7 @@ namespace ProjectTests
         }
 
         //Do not enter a confirm password
-        [Test]
+        [Test, Order(13)]
         public void EnterEmptyConfirmNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -193,7 +193,7 @@ namespace ProjectTests
         }
 
         //Enter mismathching new password
-        [Test]
+        [Test, Order(14)]
         public void EnterMissmatchingNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -204,7 +204,7 @@ namespace ProjectTests
         }
 
         //Check if change password button is working
-        [Test]
+        [Test, Order(15)]
         public void CheckIfChangeYourPasswordButtonIsWorkingManagePage()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -215,7 +215,7 @@ namespace ProjectTests
         }
 
         //Check if change password button is working
-        [Test]
+        [Test, Order(71)]
         public void SuccessfullPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -225,7 +225,7 @@ namespace ProjectTests
         }
 
         //DeleteUserWithChangedPassword
-        [Test]
+        [Test, Order(72)]
         public void WDeleteTestUser()
         {
             var userListPage = new UserListPage(driver);
@@ -238,7 +238,7 @@ namespace ProjectTests
 
         //Manage Page Tests
         //Check if Soft Uni Blog button is working when you are on Manage Page
-        [Test]
+        [Test, Order(16)]
         public void CheckIfSoftUniBlogButtonIsWorkingManagePage()
         {
             var managePage = new ManagePage(driver);
@@ -247,7 +247,7 @@ namespace ProjectTests
         }
 
         //Check if Soft Uni copyright text is on Manage Page
-        [Test]
+        [Test, Order(17)]
         public void CheckIfCopyrightoftUniBlogTextIsPresentManagePage()
         {
             var managePage = new ManagePage(driver);
@@ -256,7 +256,7 @@ namespace ProjectTests
         }
 
         //Check if Create button is working on Manage Page
-        [Test]
+        [Test, Order(18)]
         public void CheckIfCreateButtonIsWorkingManagePage()
         {
             var managePage = new ManagePage(driver);
@@ -265,7 +265,7 @@ namespace ProjectTests
         }
 
         //Check if Log Off button is working on Manage Page
-        [Test]
+        [Test, Order(19)]
         public void CheckIfLogOffButtonIsWorkingManagePage()
         {
             var managePage = new ManagePage(driver);
@@ -278,7 +278,7 @@ namespace ProjectTests
         //dilyan
         //Create page
 
-        [Test]
+        [Test, Order(20)]
         public void CheckIfLogOffButtonIsWorkingCreatePage()
         {
             var createPage = new CreatePage(driver);
@@ -288,7 +288,7 @@ namespace ProjectTests
             createPage.AssertYouSeeLogInButton();
         }
 
-        [Test]
+        [Test, Order(21)]
         public void CheckIfManageUserButtonIsWorkingCreatePage()
         {
             var createPage = new CreatePage(driver);
@@ -298,7 +298,7 @@ namespace ProjectTests
             createPage.AssertYouSeePassword();
         }
 
-        [Test]
+        [Test, Order(22)]
         public void CreateArticleWithTitleAndContent()
         {
             var createPage = new CreatePage(driver);
@@ -309,17 +309,17 @@ namespace ProjectTests
 
         }
 
-        [Test]
+        [Test, Order(23)]
         public void CreateArticleWithoutTitle()
         {
             var createPage = new CreatePage(driver);
             createPage.LogIn();
             createPage.NavigateTo();
-            createPage.FillTitleContent("","TestWithoutTitle");
+            createPage.FillTitleContent("", "TestWithoutTitle");
             createPage.AssertYouSeeTitleError();
         }
 
-        [Test]
+        [Test, Order(24)]
         public void CreateArticleWithoutContent()
         {
             var createPage = new CreatePage(driver);
@@ -329,7 +329,7 @@ namespace ProjectTests
             createPage.AssertYouSeeContentError();
         }
 
-        [Test]
+        [Test, Order(25)]
         public void CreateArticleWithTitleMoreThanFifthyCharacters()
         {
             var createPage = new CreatePage(driver);
@@ -339,7 +339,7 @@ namespace ProjectTests
             createPage.AssertYouSeeCharactersError();
         }
 
-        [Test]
+        [Test, Order(26)]
         public void CancelCreateArticle()
         {
             var createPage = new CreatePage(driver);
@@ -351,7 +351,7 @@ namespace ProjectTests
 
         //Article tests with logged in user:
         //ArticleDetailsPage
-        [Test]
+        [Test, Order(27)]
         public void CheckIfEditButtonInArticleIsWorking()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -361,7 +361,7 @@ namespace ProjectTests
             articleDetailsPage.AssertYouAreOnEditPage();
         }
 
-        [Test]
+        [Test, Order(28)]
         public void CheckIfBackButtonInArticleWorking()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -371,7 +371,7 @@ namespace ProjectTests
             articleDetailsPage.AssertYouAreOnListPage();
         }
 
-        [Test]
+        [Test, Order(29)]
         public void CheckIfCreateButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -381,7 +381,7 @@ namespace ProjectTests
             articleDetailsPage.AssertYouAreOnCreatePage();
         }
 
-        [Test]
+        [Test, Order(30)]
         public void CheckIfLogOffButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -391,7 +391,7 @@ namespace ProjectTests
             articleDetailsPage.AssertYouAreNotLogged();
         }
 
-        [Test, Order(1)]
+        [Test, Order(31)]
         public void CheckIfManageUserButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
@@ -401,25 +401,24 @@ namespace ProjectTests
             articleDetailsPage.AssertYouAreOnManagePage();
         }
 
-        [Test]
+        [Test, Order(32)]
         public void CheckIfErrorMessageIsDisplayedTryingToEditArticleCreatedFromAnotherUser()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
             articleDetailsPage.LogIn();
             articleDetailsPage.ClickLogOffButton();
             articleDetailsPage.RegisterSecondUser();
-            articleDetailsPage.LogInSecondUser();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickEditButton();
             articleDetailsPage.AssertYouHaveNoPermissions();
-            
-         }
 
-        [Test]
+        }
+
+        [Test, Order(33)]
         public void CheckIfErrorMessageIsDisplayedTryingToDeleteArticleCreatedFromAnotherUser()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
-         
+
             articleDetailsPage.LogInSecondUser();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickDeleteButton();
@@ -428,7 +427,7 @@ namespace ProjectTests
         }
 
         //Check if Create button is notpresent when logged out on Article Details view
-        [Test]
+        [Test, Order(34)]
         public void CheckIfCreateButtonIsNotDisplyedArticlePage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
@@ -437,7 +436,7 @@ namespace ProjectTests
         }
 
         //Check if Login button is working on Article Details view page
-        [Test]
+        [Test, Order(35)]
         public void CheckIfEditButtonInArticleIsRedirectingToLoginPage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
@@ -447,7 +446,7 @@ namespace ProjectTests
         }
 
         //Check if SoftUni Blog button is working on Article Details view page
-        [Test]
+        [Test, Order(36)]
         public void CheckIfSoftUniBlogButtonIsWorkingArticlePage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
@@ -457,7 +456,7 @@ namespace ProjectTests
         }
 
         //Check if SoftUni Blog button is working on Article Details view page
-        [Test]
+        [Test, Order(37)]
         public void CheckIf2017SoftUniBlogTextIsPresentArticlePage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
@@ -468,7 +467,7 @@ namespace ProjectTests
 
 
         // ArticleEditPage
-        [Test]
+        [Test, Order(38)]
         public void CheckIfTitleIsEditableInArticleEditMode()
         {
             var articleEditPage = new ArticleEditPage(driver);
@@ -478,7 +477,7 @@ namespace ProjectTests
             articleEditPage.AssertChangedTitle();
         }
 
-        [Test]
+        [Test, Order(39)]
         public void CheckIfContentIsEditableInArticleEditMode()
         {
             var articleEditPage = new ArticleEditPage(driver);
@@ -489,7 +488,7 @@ namespace ProjectTests
             articleEditPage.AssertChangedContent();
         }
 
-        [Test]
+        [Test, Order(40)]
         public void CheckIfCancelButtonInArticleEditModeIsWorking()
         {
             var articleEditPage = new ArticleEditPage(driver);
@@ -502,7 +501,7 @@ namespace ProjectTests
 
         // ArticleDeletePage
 
-        [Test]
+        [Test, Order(41)]
         public void CheckIfTitleIsEditableInArticleDeleteModearticle()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
@@ -512,7 +511,7 @@ namespace ProjectTests
             articleDeletePage.AssertTitleIsNotChanged();
         }
 
-        [Test]
+        [Test, Order(42)]
         public void CheckIfContentIsEditableInArticleDeleteMode()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
@@ -522,7 +521,7 @@ namespace ProjectTests
             articleDeletePage.AssertContentIsNotChanged();
         }
 
-        [Test]
+        [Test, Order(43)]
         public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
@@ -532,7 +531,7 @@ namespace ProjectTests
             articleDeletePage.AssertYouAreOnListPage();
         }
 
-        [Test]
+        [Test, Order(70)]
         public void CheckIfDeleteButtonInArticleDeleteModeIsWorking()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
@@ -540,25 +539,25 @@ namespace ProjectTests
             articleDeletePage.NavigateTo();
             articleDeletePage.DeleteButtonClick();
             articleDeletePage.AssertArticleIsDeleted();
-           }
+        }
 
         // User List Page
 
-        [Test]
+        [Test, Order(73)]
         public void DeleteUsers()
         {
             var userListPage = new UserListPage(driver);
             userListPage.LogIn();
             userListPage.NavigateTo();
             userListPage.Delete();
-   
+
         }
 
 
 
         //Registration page tests by Tsvetomir Pavlov
         //Register with correct credentials
-        [Test]
+        [Test, Order(45)]
         public void RegisterWithCorrectCredentials()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -568,7 +567,7 @@ namespace ProjectTests
         }
 
         //Register without email
-        [Test]
+        [Test, Order(46)]
         public void RegisterWithOutEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -581,7 +580,7 @@ namespace ProjectTests
         }
 
         //Register with incorrect email
-        [Test]
+        [Test, Order(47)]
         public void RegisterWithIncorrectEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -595,7 +594,7 @@ namespace ProjectTests
         }
 
         //Register without full name
-        [Test]
+        [Test, Order(48)]
         public void RegisterWithOutFullName()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -608,7 +607,7 @@ namespace ProjectTests
         }
 
         //Register without password
-        [Test]
+        [Test, Order(49)]
         public void RegisterWithOutPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -622,7 +621,7 @@ namespace ProjectTests
         }
 
         //Register without confirm password
-        [Test]
+        [Test, Order(50)]
         public void RegisterWithOutConfirmPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -635,7 +634,7 @@ namespace ProjectTests
         }
 
         //Register password missmatch
-        [Test]
+        [Test, Order(51)]
         public void RegisterPasswordMissmatch()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -648,18 +647,10 @@ namespace ProjectTests
             registrationPage.AssertPasswordMatch();
         }
 
-        //Check if "Register" submit button is working on register page
-        [Test]
-        public void CheckIfLoginSubmitButtonIsWorkingResgisterPage()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            registrationPage.NavigateTo();
-            registrationPage.Register();
-            registrationPage.AssertSuccessRegistration();
-        }
+        
 
         //Check if "SoftUniBlog" button is working on register page
-        [Test]
+        [Test, Order(53)]
         public void CheckIfSoftUniBlogButtonIsWorkingRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -669,7 +660,7 @@ namespace ProjectTests
         }
 
         //Check if "Login" button is working on register page
-        [Test]
+        [Test, Order(54)]
         public void CheckIfLoginButtonIsWorkingRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -679,7 +670,7 @@ namespace ProjectTests
         }
 
         //Check if "Register" button is working on register page
-        [Test]
+        [Test, Order(55)]
         public void CheckIfRegisterButtonIsWorkingRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -689,7 +680,7 @@ namespace ProjectTests
         }
 
         //Check if "©2017SoftUniBlog" text is present on register page
-        [Test]
+        [Test, Order(56)]
         public void CheckIf2017SoftUniBlogTextIsPresentRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -699,7 +690,7 @@ namespace ProjectTests
 
 
         //Check if "Create" button is not displayed on register page
-        [Test]
+        [Test, Order(57)]
         public void CheckIfCreateButtonIsNotDisplyedRegisterPage()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -708,7 +699,7 @@ namespace ProjectTests
         }
         //Login page tests by Tsvetomir Pavlov
         //Login with correct credentials
-        [Test]
+        [Test, Order(58)]
         public void LoginWithCorrectCredentials()
         {
             var loginPage = new LoginPage(driver);
@@ -718,7 +709,7 @@ namespace ProjectTests
         }
 
         //Login without email
-        [Test]
+        [Test, Order(59)]
         public void LoginWithOutEmail()
         {
             var loginPage = new LoginPage(driver);
@@ -729,7 +720,7 @@ namespace ProjectTests
         }
 
         //Login with incorrect email
-        [Test]
+        [Test, Order(60)]
         public void LoginWithIncorrectEmail()
         {
             var loginPage = new LoginPage(driver);
@@ -741,7 +732,7 @@ namespace ProjectTests
         }
 
         //Login without password
-        [Test]
+        [Test, Order(61)]
         public void LoginWithOutPassword()
         {
             var loginPage = new LoginPage(driver);
@@ -752,7 +743,7 @@ namespace ProjectTests
         }
 
         //Login with incorrect password
-        [Test]
+        [Test, Order(62)]
         public void LoginWithIncorrectPassword()
         {
             var loginPage = new LoginPage(driver);
@@ -764,7 +755,7 @@ namespace ProjectTests
         }
 
         //Check if "Login" submit button is working on login page
-        [Test]
+        [Test, Order(63)]
         public void CheckIfLoginSubmitButtonIsWorkingLoginPage()
         {
             var loginPage = new LoginPage(driver);
@@ -774,7 +765,7 @@ namespace ProjectTests
         }
 
         //Check if "©2017SoftUniBlog" text is present in login page
-        [Test]
+        [Test, Order(64)]
         public void CheckIf2017SoftUniBlogTextIsPresentLogInPage()
         {
             var loginPage = new LoginPage(driver);
@@ -783,7 +774,7 @@ namespace ProjectTests
         }
 
         //Check if "Login" button is working on login page
-        [Test]
+        [Test, Order(65)]
         public void CheckIfLoginButtonIsWorkingLoginPage()
         {
             var loginPage = new LoginPage(driver);
@@ -793,7 +784,7 @@ namespace ProjectTests
         }
 
         //Check if "Register" button is working on login page
-        [Test]
+        [Test, Order(66)]
         public void CheckIfRegisterButtonIsWorkingLoginPage()
         {
             var loginPage = new LoginPage(driver);
@@ -803,7 +794,7 @@ namespace ProjectTests
         }
 
         //Check if "Remeber me" checkbox is working on login page 
-        [Test]
+        [Test, Order(67)]
         public void CheckIfRememberMeCheckBoxIsWorkingLoginPage()
         {
             var loginPage = new LoginPage(driver);
@@ -816,7 +807,7 @@ namespace ProjectTests
         }
 
         //Check if "SoftUniBlog" button is working on login page 
-        [Test]
+        [Test, Order(68)]
         public void CheckIfSoftUniBlogButtonIsWorkingLogInPage()
         {
             var loginPage = new LoginPage(driver);
@@ -826,7 +817,7 @@ namespace ProjectTests
         }
 
         //Check if "Create" button is not displayed on login page 
-        [Test]
+        [Test, Order(69)]
         public void CheckIfCreateButtonIsNotDisplyedLoginPage()
         {
             var loginPage = new LoginPage(driver);

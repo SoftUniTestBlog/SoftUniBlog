@@ -103,7 +103,7 @@ namespace DesignPattern.Pages.ArticleDetailsPage
             Driver.FindElement(By.PartialLinkText("TestArticle12345")).Click();
             string URL = Driver.Url;
             string Id = URL.Split('/').Last();
-            Driver.Navigate().GoToUrl(this.url + "/Article/Details/" + Id); Driver.Navigate().GoToUrl(this.url + "/Article/Details/1");
+            Driver.Navigate().GoToUrl(this.url + "/Article/Details/" + Id);
             this.Driver.Manage().Window.Maximize();
         }
 
