@@ -13,13 +13,13 @@ namespace DesignPattern.Pages.ArticleEditPage
         //Check if you see changed title
         public static void AssertChangedTitle(this ArticleEditPage page)
         {
-            Assert.AreEqual("Edit title", page.ChangedTitle.Text);
+            Assert.AreEqual("TestArticle12345-EditTitle", page.ChangedTitle.Text);
         }
 
         //Check if you see changed content
         public static void AssertChangedContent(this ArticleEditPage page)
         {
-            Assert.AreEqual("TestArticle12345-EditTitle", page.ChangedContent.Text);
+            Assert.AreEqual("Edit content", page.ChangedContent.Text);
         }
 
         //Check if you see changed content

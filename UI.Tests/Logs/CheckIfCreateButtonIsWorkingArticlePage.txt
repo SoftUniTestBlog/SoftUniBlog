@@ -1,1 +1,0 @@
-UITests.GeneralProjectUITests.CheckIfCreateButtonIsWorkingArticlePage        D:\QaProject\SoftUniBlog\UI.Tests\bin\Debug            0

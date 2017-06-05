@@ -1,1 +1,0 @@
-ProjectTests.GeneralProjectTests.CheckIfCancelButtonInArticleDeleteModeIsWorking        D:\LastOne\SoftUniBlog\BasicFunctionalityTests\bin\Debug            0

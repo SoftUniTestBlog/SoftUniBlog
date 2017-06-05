@@ -13,7 +13,7 @@ namespace DesignPattern.Pages.ArticleDetailsPage
         //Check if you see Log in button
         public static void AssertYouAreOnEditPage(this ArticleDetailsPage page)
         {
-            Assert.AreEqual("TestArticle12345", page.EditArticleText.Text);
+            Assert.AreEqual("Edit Article", page.EditArticleText.Text);
         }
 
         //Check if you are on article list page

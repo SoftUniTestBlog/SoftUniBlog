@@ -1,1 +1,0 @@
-UITests.GeneralProjectUITests.CheckIfLogOffButtonIsWorkingManagePage        D:\LastOne\SoftUniBlog\UI.Tests\bin\Debug            0

@@ -34,7 +34,7 @@ namespace DesignPattern.Pages.RegistrationPage
         public void FillEmail()
         {
             Email.Clear();
-            Email.SendKeys("shavo@abv.bg");
+            Email.SendKeys("test@test.test");
             
 
         }
@@ -49,7 +49,7 @@ namespace DesignPattern.Pages.RegistrationPage
         public void FillPassword()
         {
             Password.Clear();
-            Password.SendKeys("1111");
+            Password.SendKeys("1234");
 
 
         }
@@ -57,7 +57,7 @@ namespace DesignPattern.Pages.RegistrationPage
         public void FillConfirmPassword()
         {
             ConfirmPassword.Clear();
-            ConfirmPassword.SendKeys("1111");
+            ConfirmPassword.SendKeys("1234");
         }
 
         public void ClickRegisterButtonSubmit()

@@ -54,7 +54,7 @@ namespace BasicFunctionalityTests
         }
 
         //Login with correct credentials
-        [Test]
+        [Test, Order(2)]
         public void LoginWithCorrectCredentials()
         {
             var loginPage = new LoginPage(driver);
@@ -64,7 +64,7 @@ namespace BasicFunctionalityTests
         }
 
         //Login without email
-        [Test]
+        [Test, Order(3)]
         public void LoginWithOutEmail()
         {
             var loginPage = new LoginPage(driver);
@@ -75,7 +75,7 @@ namespace BasicFunctionalityTests
         }
 
         //Login with incorrect email
-        [Test]
+        [Test, Order(4)]
         public void LoginWithIncorrectEmail()
         {
             var loginPage = new LoginPage(driver);
@@ -87,7 +87,7 @@ namespace BasicFunctionalityTests
         }
 
         //Login without password
-        [Test]
+        [Test, Order(5)]
         public void LoginWithOutPassword()
         {
             var loginPage = new LoginPage(driver);
@@ -98,7 +98,7 @@ namespace BasicFunctionalityTests
         }
 
         //Login with incorrect password
-        [Test]
+        [Test, Order(6)]
         public void LoginWithIncorrectPassword()
         {
             var loginPage = new LoginPage(driver);
@@ -109,7 +109,7 @@ namespace BasicFunctionalityTests
             loginPage.AssertLoginPasswordIsIncorrect();
         }
 
-        [Test]
+        [Test, Order(1)]
         public void CreateArticleWithTitleAndContent()
         {
             var createPage = new CreatePage(driver);
@@ -120,7 +120,7 @@ namespace BasicFunctionalityTests
 
         }
 
-        [Test]
+        [Test, Order(7)]
         public void CreateArticleWithoutTitle()
         {
             var createPage = new CreatePage(driver);
@@ -130,7 +130,7 @@ namespace BasicFunctionalityTests
             createPage.AssertYouSeeTitleError();
         }
 
-        [Test]
+        [Test, Order(8)]
         public void CreateArticleWithoutContent()
         {
             var createPage = new CreatePage(driver);
@@ -140,7 +140,7 @@ namespace BasicFunctionalityTests
             createPage.AssertYouSeeContentError();
         }
 
-        [Test]
+        [Test, Order(9)]
         public void CreateArticleWithTitleMoreThanFifthyCharacters()
         {
             var createPage = new CreatePage(driver);
@@ -150,7 +150,7 @@ namespace BasicFunctionalityTests
             createPage.AssertYouSeeCharactersError();
         }
 
-        [Test]
+        [Test, Order(10)]
         public void CancelCreateArticle()
         {
             var createPage = new CreatePage(driver);
@@ -162,7 +162,7 @@ namespace BasicFunctionalityTests
 
         // User List Page
 
-        [Test]
+        [Test, Order(25)]
         public void DeleteUsers()
         {
             var userListPage = new UserListPage(driver);
@@ -173,7 +173,7 @@ namespace BasicFunctionalityTests
         }
 
         //Create User
-        [Test]
+        [Test, Order(0)]
         public void ACreateTestUserTest()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -183,7 +183,7 @@ namespace BasicFunctionalityTests
 
 
         //Enter an incorrect current password
-        [Test]
+        [Test, Order(12)]
         public void EnterIncorrectCurrentPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -194,7 +194,7 @@ namespace BasicFunctionalityTests
         }
 
         //Do not anter a new password
-        [Test]
+        [Test, Order(13)]
         public void EnterEmptyNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -205,7 +205,7 @@ namespace BasicFunctionalityTests
         }
 
         //Do not enter a confirm password
-        [Test]
+        [Test, Order(14)]
         public void EnterEmptyConfirmNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -216,7 +216,7 @@ namespace BasicFunctionalityTests
         }
 
         //Enter mismathching new password
-        [Test]
+        [Test, Order(15)]
         public void EnterMissmatchingNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
@@ -226,7 +226,7 @@ namespace BasicFunctionalityTests
 
         }
 
-        [Test]
+        [Test, Order(16)]
         public void RegisterWithOutEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -239,7 +239,7 @@ namespace BasicFunctionalityTests
         }
 
         //Register with incorrect email
-        [Test]
+        [Test, Order(17)]
         public void RegisterWithIncorrectEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -253,7 +253,7 @@ namespace BasicFunctionalityTests
         }
 
         //Register without full name
-        [Test]
+        [Test, Order(18)]
         public void RegisterWithOutFullName()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -266,7 +266,7 @@ namespace BasicFunctionalityTests
         }
 
         //Register without password
-        [Test]
+        [Test, Order(19)]
         public void RegisterWithOutPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -280,7 +280,7 @@ namespace BasicFunctionalityTests
         }
 
         //Register without confirm password
-        [Test]
+        [Test, Order(20)]
         public void RegisterWithOutConfirmPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -293,7 +293,7 @@ namespace BasicFunctionalityTests
         }
 
         //Register password missmatch
-        [Test]
+        [Test, Order(21)]
         public void RegisterPasswordMissmatch()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -307,7 +307,7 @@ namespace BasicFunctionalityTests
         }
 
         // ArticleEditPage
-        [Test]
+        [Test, Order(22)]
         public void CheckIfTitleIsEditableInArticleEditMode()
         {
             var articleEditPage = new ArticleEditPage(driver);
@@ -317,7 +317,7 @@ namespace BasicFunctionalityTests
             articleEditPage.AssertChangedTitle();
         }
 
-        [Test]
+        [Test, Order(23)]
         public void CheckIfContentIsEditableInArticleEditMode()
         {
             var articleEditPage = new ArticleEditPage(driver);
@@ -326,6 +326,16 @@ namespace BasicFunctionalityTests
             articleEditPage.EditContent("Edit content");
             articleEditPage.EditButtonClick();
             articleEditPage.AssertChangedContent();
+        }
+
+        [Test, Order(24)]
+        public void CheckIfDeleteButtonInArticleDeleteModeIsWorking()
+        {
+            var articleDeletePage = new ArticleDeletePage(driver);
+            articleDeletePage.LogIn();
+            articleDeletePage.NavigateTo();
+            articleDeletePage.DeleteButtonClick();
+            articleDeletePage.AssertArticleIsDeleted();
         }
 
     }

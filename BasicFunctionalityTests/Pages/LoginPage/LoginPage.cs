@@ -30,18 +30,18 @@ namespace DesignPattern.Pages.LoginPage
         public void FillEmail()
         {
             Email.Clear();
-            Email.SendKeys("shavo@abv.bg");
+            Email.SendKeys("test@test.test");
         }
 
         public void FillIncorrectEmail()
         {
             Email.Clear();
-            Email.SendKeys("shavo@abv");
+            Email.SendKeys("test@testtest");
         }
         public void FillPassword()
         {
             Password.Clear();
-            Password.SendKeys("1111");
+            Password.SendKeys("1234");
         }
 
         public void FillIncorrectPassword()
