@@ -1,21 +1,12 @@
 ﻿@model List<Blog.Models.Article>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "SortByTitleDescending";
 }
 
 <div class="container">
     @Html.ActionLink("By Name ^", "SortByTitleAscending", "Article", new { @class = "sorting-links" })
-    @Html.ActionLink("By Name v", "SortByTitleDescending", "Article", new { @class = "sorting-links" })
-    @using (Html.BeginForm("Search", "Article", FormMethod.Post, new { @class = "pull-right" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary("", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.TextBox("Title", "", new { @id = "search-title" })
-            <input type="submit" value="Search" class="btn" />
-        </div>
-    }
+    @Html.Label("By Name v", new { @class = "sorted" })
     <div class="row">
         @foreach (var article in Model)
         {

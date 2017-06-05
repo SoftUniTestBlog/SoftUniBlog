@@ -29,6 +29,38 @@ namespace Blog.Controllers
             }
         }
 
+
+        //
+        // GET: Article/SortByTitleAscending
+        public ActionResult SortByTitleAscending()
+        {
+            using (var database = new BlogDbContext())
+            {
+                var articles = database.Articles
+                    .Include(a => a.Author)
+                    .OrderBy(a => a.Title)
+                    .ToList();
+
+                return View(articles);
+            }
+        }
+
+        //
+        // GET: Article/SortByTitleDescending
+        public ActionResult SortByTitleDescending()
+        {
+            using (var database = new BlogDbContext())
+            {
+                var articles = database.Articles
+                    .Include(a => a.Author)
+                    .OrderByDescending(a => a.Title)
+                    .ToList();
+
+                return View(articles);
+            }
+        }
+
+
         //
         // GET: Article/Details
         public ActionResult Details(int? id)
