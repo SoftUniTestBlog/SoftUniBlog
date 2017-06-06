@@ -226,7 +226,7 @@ namespace BasicFunctionalityTests
 
         }
 
-        [Test, Order(16)]
+        [Test, Order(16), Property("Register without", 0)]
         public void RegisterWithOutEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -253,7 +253,7 @@ namespace BasicFunctionalityTests
         }
 
         //Register without full name
-        [Test, Order(18)]
+        [Test, Order(18), Property("Register without", 0)]
         public void RegisterWithOutFullName()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -266,7 +266,7 @@ namespace BasicFunctionalityTests
         }
 
         //Register without password
-        [Test, Order(19)]
+        [Test, Order(19), Property("Register without",0)]
         public void RegisterWithOutPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -280,7 +280,7 @@ namespace BasicFunctionalityTests
         }
 
         //Register without confirm password
-        [Test, Order(20)]
+        [Test, Order(20), Property("Register without", 0)]
         public void RegisterWithOutConfirmPassword()
         {
             var registrationPage = new RegistrationPage(driver);
