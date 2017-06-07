@@ -1,0 +1,42 @@
+﻿@model List<Blog.Models.Article>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    @Html.ActionLink("By Name ^", "SortByTitleAscending", "Article", new { @class = "sorting-links" })
+    @Html.ActionLink("By Name v", "SortByTitleDescending", "Article", new { @class = "sorting-links" })
+    @using (Html.BeginForm("Search", "Article", FormMethod.Post, new { @class = "pull-right" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.TextBox("Title", "", new { @id = "search-title" })
+            <input type="submit" value="Search" class="btn" />
+        </div>
+    }
+    <div class="row">
+        @foreach (var article in Model)
+        {
+            <div class="col-sm-6">
+                <article>
+                    <header>
+                        <h2>
+                            @Html.ActionLink(@article.Title, "Details", "Article", new { @id = article.Id }, null)
+                        </h2>
+                    </header>
+                    <p>
+                        @article.Content
+                    </p>
+                    <footer class="pull-right">
+                        <small class="author">
+                            --author @article.Author.FullName
+                        </small>
+                    </footer>
+                </article>
+            </div>
+        }
+    </div>
+</div>
+<hr />
