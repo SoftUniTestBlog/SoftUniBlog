@@ -19,18 +19,21 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium.Support.UI;
 
 
 namespace BasicFunctionalityTests
 {
     class BasicFunctionalityTests
     {
-        private IWebDriver driver;
+        private IWebDriver driver = BrowserHost.Instance.Application.Browser;
 
         [SetUp]
         public void Init()
         {
-            driver = new ChromeDriver();
+            //Thread.Sleep(30000);
+            WebDriverWait wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(60));
+            var logo = wait.Until(w => w.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a")));
         }
 
         [TearDown]
