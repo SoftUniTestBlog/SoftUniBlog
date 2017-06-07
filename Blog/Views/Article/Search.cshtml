@@ -1,7 +1,7 @@
 ﻿@model List<Blog.Models.Article>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Search";
 }
 
 <div class="container">
@@ -12,16 +12,37 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="form-group">
-            <input type="text" id="nameToFind" name="nameToFind">
+            <input type="text" id="nameToFind" name="nameToFind" value="@ViewBag.SearchKey">
 
             <input type="submit" value="Search" class="btn" />
         </div>
     }
+    <br />
+    @{
+        if (ViewBag.SearchKey != null)
+        {
+            <span>Search Key:</span>
+            <span class=".label-success">
+                @ViewBag.SearchKey
+            </span>
+        }
+    }
+
 
     <div class="row">
+        @{
+            if (ViewBag.Empty != null)
+            {
+                <div class="container-gt">
+                    <p> No Results Found !</p>
+                </div>
+            }
+
+        }
         @foreach (var article in Model)
         {
             <div class="col-sm-6">
+
                 <article>
                     <header>
                         <h2>

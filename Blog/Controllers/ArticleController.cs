@@ -1,4 +1,5 @@
 ﻿using Blog.Models;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -87,6 +88,42 @@ namespace Blog.Controllers
         }
 
         //
+        // GET: Article/Search
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+
+
+        //
+        // POST: Article/Search
+        [HttpPost]
+        public ActionResult Search(string nameToFind)
+        {
+            ViewBag.SearchKey = nameToFind;
+
+            using (var database = new BlogDbContext())
+            {
+                var articles = database.Articles
+                    .Include(a => a.Author)
+                    .Where(a => a.Title.Contains(nameToFind)
+                             || a.Content.Contains(nameToFind))
+                    .ToList();
+                if (articles.Any())
+                {
+                    return View(articles);
+                }
+                else
+                {
+                    ViewBag.Empty = "empty";
+                    return View(articles);
+                }
+
+            }
+        }
+
+        //
         // GET: Article/Create
         [Authorize]
         public ActionResult Create()
@@ -130,7 +167,7 @@ namespace Blog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             using (var database = new BlogDbContext())
             {
                 // Get article from database

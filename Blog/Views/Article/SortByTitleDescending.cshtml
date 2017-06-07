@@ -7,6 +7,27 @@
 <div class="container">
     @Html.ActionLink("By Name ^", "SortByTitleAscending", "Article", new { @class = "sorting-links" })
     @Html.Label("By Name v", new { @class = "sorted" })
+    @using (Html.BeginForm("Search", "Article", FormMethod.Post, new { @class = "pull-right" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            <input type="text" id="nameToFind" name="nameToFind">
+
+            <input type="submit" value="Search" class="btn" />
+        </div>
+    }
+    <br />
+    @{
+        if (ViewBag.SearchKey != null)
+        {
+            <span>Search Key:</span>
+            <span class=".label-success">
+                @ViewBag.SearchKey
+            </span>
+        }
+    }
+
     <div class="row">
         @foreach (var article in Model)
         {
