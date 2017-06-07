@@ -8,17 +8,10 @@ using DesignPattern.Pages.ManagePage;
 using DesignPattern.Pages.RegistrationPage;
 using DesignPattern.Pages.UserListPage;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using ProjectTests.Pages.HomePage;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using OpenQA.Selenium.Support.UI;
 
 
@@ -26,33 +19,14 @@ namespace UITests
 {
     class GeneralProjectUITests
     {
-        public IWebDriver driver = BrowserHost.Instance.Application.Browser;
+        private IWebDriver driver = BrowserHost.Instance.Application.Browser;
 
         [SetUp]
         public void Init()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
+            Thread.Sleep(30000);
+            WebDriverWait wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(60));
             var logo = wait.Until(w => w.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a")));
-        }
-
-        [TearDown]
-        public void CleanUp()
-        {
-            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-            {
-                var relative = System.AppDomain.CurrentDomain.BaseDirectory;
-                string filename = ConfigurationManager.AppSettings["Logs"] + TestContext.CurrentContext.Test.Name + ".txt";
-                if (File.Exists(relative + filename))
-                {
-                    File.Delete(relative + filename);
-                }
-                File.WriteAllText(relative + filename, TestContext.CurrentContext.Test.FullName + "        " + TestContext.CurrentContext.WorkDirectory + "            " + TestContext.CurrentContext.Result.PassCount);
-
-                var screenshot = ((ITakesScreenshot)this.driver).GetScreenshot();
-                screenshot.SaveAsFile(relative + filename + TestContext.CurrentContext.Test.Name + ".jpg", ScreenshotImageFormat.Jpeg);
-
-            }
-            driver.Quit();
         }
 
         //Create User
