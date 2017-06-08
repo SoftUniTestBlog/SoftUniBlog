@@ -2,7 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System.Configuration;
 
-namespace ProjectTests.Pages.HomePage
+namespace BasicFunctionality.Pages.HomePage
 {
     public partial class HomePage
     {

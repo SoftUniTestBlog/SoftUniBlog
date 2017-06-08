@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ArticleEditPage
+namespace BasicFunctionality.Pages.ArticleEditPage
 {
     public partial class ArticleEditPage
     {

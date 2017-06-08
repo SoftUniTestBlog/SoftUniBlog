@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ArticleDeletePage
+namespace BasicFunctionality.Pages.ArticleDeletePage
 {
     public partial class ArticleDeletePage
     {

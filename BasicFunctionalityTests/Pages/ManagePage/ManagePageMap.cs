@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ManagePage
+namespace BasicFunctionality.Pages.ManagePage
 {
     public partial class ManagePage
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.CreatePage
+namespace BasicFunctionality.Pages.CreatePage
 {
     public partial class CreatePage
     {

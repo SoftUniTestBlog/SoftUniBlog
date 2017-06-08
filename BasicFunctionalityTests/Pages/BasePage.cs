@@ -4,7 +4,7 @@ using System;
 using System.Configuration;
 using System.Linq;
 
-namespace ProjectTests.Pages
+namespace BasicFunctionality.Pages
 {
     public class BasePage
     {

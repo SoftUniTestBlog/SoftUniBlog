@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ArticleDetailsPage
+namespace BasicFunctionality.Pages.ArticleDetailsPage
 {
     public static class ArticleDetailsPageAsserter
     {

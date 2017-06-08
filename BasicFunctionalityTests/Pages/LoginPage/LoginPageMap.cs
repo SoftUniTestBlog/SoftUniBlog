@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.LoginPage
+namespace BasicFunctionality.Pages.LoginPage
 {
     public partial class LoginPage
     {

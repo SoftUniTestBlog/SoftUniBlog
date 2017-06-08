@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.UserListPage
+namespace BasicFunctionality.Pages.UserListPage
 {
     public partial class UserListPage
     {

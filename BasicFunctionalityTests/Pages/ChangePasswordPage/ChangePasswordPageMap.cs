@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ChangePasswordPage
+namespace BasicFunctionality.Pages.ChangePasswordPage
 {
     public partial class ChangePasswordPage
     {

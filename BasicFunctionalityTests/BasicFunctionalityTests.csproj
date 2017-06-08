@@ -7,8 +7,8 @@
     <ProjectGuid>{131F3477-05CB-4F9E-81E7-B1947FC97473}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DesignPattern</RootNamespace>
-    <AssemblyName>DesignPattern</AssemblyName>
+    <RootNamespace>BasicFunctionality</RootNamespace>
+    <AssemblyName>BasicFunctionality</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
