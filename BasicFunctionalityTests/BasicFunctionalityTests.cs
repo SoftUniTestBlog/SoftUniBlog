@@ -125,7 +125,7 @@ namespace BasicFunctionalityTests
         public void CreateArticleWithoutTitle()
         {
             var createPage = new CreatePage(driver);
-            createPage.LogIn();
+        //    createPage.LogIn();
             createPage.NavigateTo();
             createPage.FillTitleContent("", "TestWithoutTitle");
             createPage.AssertYouSeeTitleError();
@@ -135,7 +135,7 @@ namespace BasicFunctionalityTests
         public void CreateArticleWithoutContent()
         {
             var createPage = new CreatePage(driver);
-            createPage.LogIn();
+       //     createPage.LogIn();
             createPage.NavigateTo();
             createPage.FillTitleContent("TestWithoutContent", "");
             createPage.AssertYouSeeContentError();
@@ -145,7 +145,7 @@ namespace BasicFunctionalityTests
         public void CreateArticleWithTitleMoreThanFifthyCharacters()
         {
             var createPage = new CreatePage(driver);
-            createPage.LogIn();
+          //  createPage.LogIn();
             createPage.NavigateTo();
             createPage.FillTitleContent("asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd", "asd");
             createPage.AssertYouSeeCharactersError();
@@ -155,7 +155,7 @@ namespace BasicFunctionalityTests
         public void CancelCreateArticle()
         {
             var createPage = new CreatePage(driver);
-            createPage.LogIn();
+           // createPage.LogIn();
             createPage.NavigateTo();
             createPage.ClickCancelButton();
             createPage.AssertYouAreOnArticleListPage();
@@ -167,7 +167,7 @@ namespace BasicFunctionalityTests
         public void DeleteUsers()
         {
             var userListPage = new UserListPage(driver);
-            userListPage.LogIn();
+        //    userListPage.LogIn();
             userListPage.NavigateTo();
             userListPage.Delete();
 
@@ -189,7 +189,7 @@ namespace BasicFunctionalityTests
         {
             var changePasswordPage = new ChangePasswordPage(driver);
 
-            changePasswordPage.LogIn();
+          //  changePasswordPage.LogIn();
             changePasswordPage.EnterIncorrectCurrentPasswordChange();
             changePasswordPage.AssertCurrentPasswordIsIncorrect();
         }
@@ -199,7 +199,7 @@ namespace BasicFunctionalityTests
         public void EnterEmptyNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
-            changePasswordPage.LogIn();
+         //   changePasswordPage.LogIn();
             changePasswordPage.EnterIncorrectCurrentPasswordChange();
             changePasswordPage.AssertCurrentPasswordIsIncorrect();
 
@@ -210,7 +210,7 @@ namespace BasicFunctionalityTests
         public void EnterEmptyConfirmNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
-            changePasswordPage.LogIn();
+            //changePasswordPage.LogIn();
             changePasswordPage.EnterEmptyConfirmPassword();
             changePasswordPage.AssertConfirmPasswordIsEntered();
 
@@ -221,7 +221,7 @@ namespace BasicFunctionalityTests
         public void EnterMissmatchingNewPasswordChange()
         {
             var changePasswordPage = new ChangePasswordPage(driver);
-            changePasswordPage.LogIn();
+        //    changePasswordPage.LogIn();
             changePasswordPage.EnterMissmatchingNewPassword();
             changePasswordPage.AssertEnteredPasswordsAreMissmatching();
 
@@ -312,7 +312,7 @@ namespace BasicFunctionalityTests
         public void CheckIfTitleIsEditableInArticleEditMode()
         {
             var articleEditPage = new ArticleEditPage(driver);
-            articleEditPage.LogIn();
+        //    articleEditPage.LogIn();
             articleEditPage.NavigateTo();
             articleEditPage.EditTitle();
             articleEditPage.AssertChangedTitle();
@@ -322,7 +322,7 @@ namespace BasicFunctionalityTests
         public void CheckIfContentIsEditableInArticleEditMode()
         {
             var articleEditPage = new ArticleEditPage(driver);
-            articleEditPage.LogIn();
+           // articleEditPage.LogIn();
             articleEditPage.NavigateTo();
             articleEditPage.EditContent("Edit content");
             articleEditPage.EditButtonClick();
@@ -333,7 +333,7 @@ namespace BasicFunctionalityTests
         public void CheckIfDeleteButtonInArticleDeleteModeIsWorking()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
-            articleDeletePage.LogIn();
+         //   articleDeletePage.LogIn();
             articleDeletePage.NavigateTo();
             articleDeletePage.DeleteButtonClick();
             articleDeletePage.AssertArticleIsDeleted();
