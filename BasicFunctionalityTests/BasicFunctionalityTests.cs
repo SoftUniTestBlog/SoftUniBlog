@@ -53,7 +53,7 @@ namespace BasicFunctionalityTests
                 screenshot.SaveAsFile(relative + filename + TestContext.CurrentContext.Test.Name + ".jpg", ScreenshotImageFormat.Jpeg);
                 
             }
-            driver.Quit();
+           // driver.Quit();
         }
 
         //Login with correct credentials
