@@ -31,7 +31,7 @@ namespace BasicFunctionalityTests
         [SetUp]
         public void Init()
         {
-            //Thread.Sleep(30000);
+            ////Thread.Sleep(30000);
             WebDriverWait wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(60));
             var logo = wait.Until(w => w.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a")));
         }
