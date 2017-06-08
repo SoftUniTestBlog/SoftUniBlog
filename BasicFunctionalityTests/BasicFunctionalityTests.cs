@@ -26,14 +26,12 @@ namespace BasicFunctionalityTests
 {
     class BasicFunctionalityTests
     {
-        private IWebDriver driver = BrowserHost.Instance.Application.Browser;
+        private IWebDriver driver;
 
         [SetUp]
         public void Init()
         {
-            ////Thread.Sleep(30000);
-            WebDriverWait wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(60));
-            var logo = wait.Until(w => w.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a")));
+           driver = BrowserHost.Instance.Application.Browser; ;
         }
 
         [TearDown]
@@ -55,7 +53,7 @@ namespace BasicFunctionalityTests
             }
            // driver.Quit();
         }
-/*
+
         //Login with correct credentials
         [Test, Order(2)]
         public void LoginWithCorrectCredentials()
@@ -174,7 +172,7 @@ namespace BasicFunctionalityTests
             userListPage.Delete();
 
         }
-        */
+        
         //Create User
         [Test, Order(0)]
         public void ACreateTestUserTest()
@@ -183,7 +181,7 @@ namespace BasicFunctionalityTests
 
             changePasswordPage.Register();
         }
-        /*
+        
 
         //Enter an incorrect current password
         [Test, Order(12)]
@@ -340,6 +338,6 @@ namespace BasicFunctionalityTests
             articleDeletePage.DeleteButtonClick();
             articleDeletePage.AssertArticleIsDeleted();
         }
-        */
+        
     }
 }
