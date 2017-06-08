@@ -55,7 +55,7 @@ namespace BasicFunctionalityTests
             }
            // driver.Quit();
         }
-
+/*
         //Login with correct credentials
         [Test, Order(2)]
         public void LoginWithCorrectCredentials()
@@ -174,7 +174,7 @@ namespace BasicFunctionalityTests
             userListPage.Delete();
 
         }
-
+        */
         //Create User
         [Test, Order(0)]
         public void ACreateTestUserTest()
@@ -183,7 +183,7 @@ namespace BasicFunctionalityTests
 
             changePasswordPage.Register();
         }
-
+        /*
 
         //Enter an incorrect current password
         [Test, Order(12)]
@@ -340,6 +340,6 @@ namespace BasicFunctionalityTests
             articleDeletePage.DeleteButtonClick();
             articleDeletePage.AssertArticleIsDeleted();
         }
-
+        */
     }
 }
