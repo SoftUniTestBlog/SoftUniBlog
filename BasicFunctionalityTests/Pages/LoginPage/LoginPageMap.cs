@@ -43,8 +43,8 @@ namespace BasicFunctionality.Pages.LoginPage
         {
             get
             {
-                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/input")));
-                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/input"));
+                this.Wait.Until(ExpectedConditions.ElementExists(By.ClassName("btn")));
+                return Driver.FindElement(By.ClassName("btn"));
             }
         }
 
@@ -116,8 +116,8 @@ namespace BasicFunctionality.Pages.LoginPage
         {
             get
             {
-                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[1]/div/span/span")));
-                return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/div/span/span"));
+                this.Wait.Until(ExpectedConditions.ElementExists(By.ClassName("field-validation-error")));
+                return Driver.FindElement(By.ClassName("field-validation-error"));
             }
         }
 

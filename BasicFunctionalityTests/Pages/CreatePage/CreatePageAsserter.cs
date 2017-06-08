@@ -49,7 +49,7 @@ namespace BasicFunctionality.Pages.CreatePage
         //Check if you are on article list page
         public static void AssertYouAreOnArticleListPage(this CreatePage page)
         {
-            Assert.AreEqual("http://localhost:60634/Article/List", page.URL);
+            Assert.AreEqual("http://localhost:60640/Article/List", page.URL);
         }
     }
 }
