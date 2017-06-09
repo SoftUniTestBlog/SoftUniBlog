@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.ChangePasswordPage
+namespace ProjectTests.Pages.ChangePasswordPage
 {
     public partial class ChangePasswordPage : BasePage
     {

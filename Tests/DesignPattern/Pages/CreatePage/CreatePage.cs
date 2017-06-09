@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.CreatePage
+namespace ProjectTests.Pages.CreatePage
 {
     public partial class CreatePage : BasePage
     {

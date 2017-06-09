@@ -1,12 +1,12 @@
-﻿using DesignPattern.Pages.ArticleDeletePage;
-using DesignPattern.Pages.ArticleDetailsPage;
-using DesignPattern.Pages.ArticleEditPage;
-using DesignPattern.Pages.ChangePasswordPage;
-using DesignPattern.Pages.CreatePage;
-using DesignPattern.Pages.LoginPage;
-using DesignPattern.Pages.ManagePage;
-using DesignPattern.Pages.RegistrationPage;
-using DesignPattern.Pages.UserListPage;
+﻿using ProjectTests.Pages.ArticleDeletePage;
+using ProjectTests.Pages.ArticleDetailsPage;
+using ProjectTests.Pages.ArticleEditPage;
+using ProjectTests.Pages.ChangePasswordPage;
+using ProjectTests.Pages.CreatePage;
+using ProjectTests.Pages.LoginPage;
+using ProjectTests.Pages.ManagePage;
+using ProjectTests.Pages.RegistrationPage;
+using ProjectTests.Pages.UserListPage;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -31,9 +31,9 @@ namespace ProjectTests
         [SetUp]
         public void Init()
         {
-            //Thread.Sleep(30000);
+           
             WebDriverWait wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(60));
-            var logo = wait.Until(w => w.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a")));
+          
         }
 
         [TearDown]
@@ -53,7 +53,7 @@ namespace ProjectTests
                 screenshot.SaveAsFile(relative + filename + TestContext.CurrentContext.Test.Name + ".jpg", ScreenshotImageFormat.Jpeg);
 
             }
-            driver.Quit();
+         //   driver.Quit();
         }
 
         //FIRSTCOMMIT

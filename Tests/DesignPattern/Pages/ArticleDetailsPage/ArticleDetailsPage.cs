@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.ArticleDetailsPage
+namespace ProjectTests.Pages.ArticleDetailsPage
 {
     public partial class ArticleDetailsPage : BasePage
     {

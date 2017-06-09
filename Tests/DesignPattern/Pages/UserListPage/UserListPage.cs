@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.UserListPage
+namespace ProjectTests.Pages.UserListPage
 {
     public partial class UserListPage : BasePage
     {

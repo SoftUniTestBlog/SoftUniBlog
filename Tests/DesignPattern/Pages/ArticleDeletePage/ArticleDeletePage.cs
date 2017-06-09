@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.ArticleDeletePage
+namespace ProjectTests.Pages.ArticleDeletePage
 {
     public partial class ArticleDeletePage : BasePage
     {

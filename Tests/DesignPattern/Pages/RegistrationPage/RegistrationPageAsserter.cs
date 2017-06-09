@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.RegistrationPage
+namespace ProjectTests.Pages.RegistrationPage
 {
     public static class RegistrationPageAsserter
     {

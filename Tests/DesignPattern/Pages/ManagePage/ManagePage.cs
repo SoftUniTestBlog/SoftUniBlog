@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.ManagePage
+namespace ProjectTests.Pages.ManagePage
 {
     public partial class ManagePage : BasePage
     {

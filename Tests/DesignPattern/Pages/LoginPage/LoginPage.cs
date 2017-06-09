@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.LoginPage
+namespace ProjectTests.Pages.LoginPage
 {
     public partial class LoginPage : BasePage
     {

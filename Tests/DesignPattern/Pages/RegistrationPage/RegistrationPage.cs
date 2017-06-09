@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.RegistrationPage
+namespace ProjectTests.Pages.RegistrationPage
 {
     public partial class RegistrationPage : BasePage
     {

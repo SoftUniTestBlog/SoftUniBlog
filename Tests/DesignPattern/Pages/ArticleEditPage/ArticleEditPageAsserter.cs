@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ArticleEditPage
+namespace ProjectTests.Pages.ArticleEditPage
 {
     public static class ArticleEditPageAsserter
     {

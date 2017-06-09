@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.ArticleEditPage
+namespace ProjectTests.Pages.ArticleEditPage
 {
     public partial class ArticleEditPage : BasePage
     {

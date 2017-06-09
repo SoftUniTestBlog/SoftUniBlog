@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.LoginPage
+namespace ProjectTests.Pages.LoginPage
 {
     public static class LoginPageAsserter
     {
