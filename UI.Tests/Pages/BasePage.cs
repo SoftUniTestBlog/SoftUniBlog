@@ -16,7 +16,7 @@ namespace UITests.Pages
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
-            wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(10));
+            wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(20));
         }
 
         public IWebDriver Driver
