@@ -1,4 +1,4 @@
-﻿using ProjectTests.Pages;
+﻿using UITests.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace DesignPattern.Pages.ArticleEditPage
+namespace UITests.Pages.ArticleEditPage
 {
     public partial class ArticleEditPage : BasePage
     {

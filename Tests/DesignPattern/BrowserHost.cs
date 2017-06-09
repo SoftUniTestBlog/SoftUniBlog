@@ -1,3 +1,4 @@
+using OpenQA.Selenium.Chrome;
 using TestStack.Seleno.Configuration;
 
 namespace ProjectTests
@@ -11,7 +12,7 @@ namespace ProjectTests
         static BrowserHost()
         {
             //Instance.Run("Blog", 60639, w => w.WithRemoteWebDriver(BrowserFactory.Chrome));
-            Instance.Run("Blog", 60640);
+            Instance.Run("Blog", 60640, w => w.WithRemoteWebDriver(() => new ChromeDriver());
             //RootUrl = Instance.Application.Browser.Url;
         }
 

@@ -1,15 +1,15 @@
-﻿using DesignPattern.Pages.ArticleDeletePage;
-using DesignPattern.Pages.ArticleDetailsPage;
-using DesignPattern.Pages.ArticleEditPage;
-using DesignPattern.Pages.ChangePasswordPage;
-using DesignPattern.Pages.CreatePage;
-using DesignPattern.Pages.LoginPage;
-using DesignPattern.Pages.ManagePage;
-using DesignPattern.Pages.RegistrationPage;
-using DesignPattern.Pages.UserListPage;
+﻿using UITests.Pages.ArticleDeletePage;
+using UITests.Pages.ArticleDetailsPage;
+using UITests.Pages.ArticleEditPage;
+using UITests.Pages.ChangePasswordPage;
+using UITests.Pages.CreatePage;
+using UITests.Pages.LoginPage;
+using UITests.Pages.ManagePage;
+using UITests.Pages.RegistrationPage;
+using UITests.Pages.UserListPage;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using ProjectTests.Pages.HomePage;
+using UITests.Pages.HomePage;
 using System;
 using System.Configuration;
 using System.IO;
@@ -27,9 +27,9 @@ namespace UITests
         [SetUp]
         public void Init()
         {
-            //Thread.Sleep(30000);
+         
             WebDriverWait wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(60));
-            var logo = wait.Until(w => w.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a")));
+            
         }
 
 
@@ -50,7 +50,7 @@ namespace UITests
                 screenshot.SaveAsFile(relative + filename + TestContext.CurrentContext.Test.Name + ".jpg", ScreenshotImageFormat.Jpeg);
 
             }
-            driver.Quit();
+          //  driver.Quit();
         }
 
 
@@ -101,6 +101,7 @@ namespace UITests
         public void CheckIfRegisterButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
+            homePage.LogOffButton.Click();
             homePage.ClickRegisterButton();
             homePage.AssertYouAreOnRegistrationPage("Register");
 
@@ -130,6 +131,7 @@ namespace UITests
         public void CheckIfLogOffButtonIsWorkingHomePage()
         {
             var homePage = new HomePage(driver);
+            homePage.LogOffButton.Click();
             homePage.LogInAndOut();
             homePage.AssertLogOffButtonIsWorking();
         }
@@ -147,8 +149,9 @@ namespace UITests
         [Test, Order(9)]
         public void CheckIfCreateButtonIsNotDisplayedHomePageWhenYouAreNotLoggedIn()
         {
-            var homePage = new HomePage(driver);
+            var homePage = new HomePage(driver);   
             homePage.NavigateTo();
+            homePage.LogOffButton.Click();
             homePage.AssertCreateButtonIsMissing();
         }
 
@@ -168,6 +171,7 @@ namespace UITests
         public void CheckIfCopyrightoftUniBlogTextIsPresentManagePage()
         {
             var managePage = new ManagePage(driver);
+            managePage.LogOffButton.Click();
             managePage.NavigateTo();
             managePage.AssertCopyrightIsPresent();
         }
@@ -177,6 +181,7 @@ namespace UITests
         public void CheckIfCreateButtonIsWorkingManagePage()
         {
             var managePage = new ManagePage(driver);
+            managePage.LogOffButton.Click();
             managePage.ClickCreateButton();
             managePage.AssertIAmOnCreatePage();
         }
@@ -186,6 +191,7 @@ namespace UITests
         public void CheckIfLogOffButtonIsWorkingManagePage()
         {
             var managePage = new ManagePage(driver);
+            managePage.LogOffButton.Click();
             managePage.NavigateTo();
             managePage.ClickLogOffButton();
             managePage.AssertIAmLoggedOff();
@@ -221,6 +227,7 @@ namespace UITests
         public void CheckIfEditButtonInArticleIsWorking()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogIn();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickEditButton();
@@ -231,6 +238,7 @@ namespace UITests
         public void CheckIfBackButtonInArticleWorking()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogIn();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickBackButton();
@@ -241,6 +249,7 @@ namespace UITests
         public void CheckIfCreateButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogIn();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickCreateButton();
@@ -251,6 +260,7 @@ namespace UITests
         public void CheckIfLogOffButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogIn();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickLogOffButton();
@@ -261,6 +271,7 @@ namespace UITests
         public void CheckIfManageUserButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogIn();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickManageButton();
@@ -271,6 +282,7 @@ namespace UITests
         public void CheckIfErrorMessageIsDisplayedTryingToEditArticleCreatedFromAnotherUser()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogIn();
             articleDetailsPage.ClickLogOffButton();
             articleDetailsPage.RegisterSecondUser();
@@ -284,7 +296,7 @@ namespace UITests
         public void CheckIfErrorMessageIsDisplayedTryingToDeleteArticleCreatedFromAnotherUser()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
-
+            articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogInSecondUser();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickDeleteButton();
@@ -301,6 +313,7 @@ namespace UITests
         public void CheckIfCancelButtonInArticleEditModeIsWorking()
         {
             var articleEditPage = new ArticleEditPage(driver);
+            articleEditPage.LogOffButton.Click();
             articleEditPage.LogIn();
             articleEditPage.NavigateTo();
             articleEditPage.EditContent("This should not be visible");
@@ -313,6 +326,7 @@ namespace UITests
         public void CheckIfCreateButtonIsNotDisplyedArticlePage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
+
             articleNodeView.NavigateToFirstArticle();
             articleNodeView.AssertCreateButtonIsMissing();
         }

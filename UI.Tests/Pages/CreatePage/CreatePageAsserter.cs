@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.CreatePage
+namespace UITests.Pages.CreatePage
 {
     public static class CreatePageAsserter
     {

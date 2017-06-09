@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ManagePage
+namespace UITests.Pages.ManagePage
 {
     public static class ManagePageAsserter
     {

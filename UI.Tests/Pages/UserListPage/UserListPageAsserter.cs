@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.UserListPage
+namespace UITests.Pages.UserListPage
 {
     public static class UserListPageAsserter
     {

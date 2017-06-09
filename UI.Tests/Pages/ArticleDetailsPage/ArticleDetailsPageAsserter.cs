@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ArticleDetailsPage
+namespace UITests.Pages.ArticleDetailsPage
 {
     public static class ArticleDetailsPageAsserter
     {
@@ -19,7 +19,7 @@ namespace DesignPattern.Pages.ArticleDetailsPage
         //Check if you are on article list page
         public static void AssertYouAreOnListPage(this ArticleDetailsPage page)
         {
-            Assert.AreEqual("http://localhost:60634/Article/List", page.URL);
+            Assert.AreEqual("http://localhost:60640/Article/List", page.URL);
         }
 
         //Check if you see Log in button

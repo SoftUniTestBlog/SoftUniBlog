@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ArticleEditPage
+namespace UITests.Pages.ArticleEditPage
 {
     public partial class ArticleEditPage
     {
@@ -97,6 +97,14 @@ namespace DesignPattern.Pages.ArticleEditPage
             {
                 this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/a")));
                 return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/a"));
+            }
+        }
+        public IWebElement LogOffButton
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.LinkText("Log off")));
+                return Driver.FindElement(By.LinkText("Log off"));
             }
         }
 

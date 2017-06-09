@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Pages.ChangePasswordPage
+namespace UITests.Pages.ChangePasswordPage
 {
     public static class ChangePasswordPageAsserter
     {
