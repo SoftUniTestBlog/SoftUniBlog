@@ -147,5 +147,13 @@ namespace UITests.Pages.LoginPage
                 return Driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/article/header/h2/a"));
             }
         }
+        public IWebElement LogOffButton
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id=\"logoutForm\"]/ul/li[3]/a")));
+                return Driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li[3]/a"));
+            }
+        }
     }
 }

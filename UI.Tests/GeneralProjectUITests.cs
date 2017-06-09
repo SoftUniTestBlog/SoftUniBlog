@@ -67,6 +67,7 @@ namespace UITests
         public void CreateArticleWithTitleAndContent()
         {
             var createPage = new CreatePage(driver);
+            createPage.LogOffButton.Click();
             createPage.LogIn();
             createPage.NavigateTo();
             createPage.FillTitleContent("TestArticle12345", "Content");
@@ -271,7 +272,6 @@ namespace UITests
         public void CheckIfManageUserButtonIsWorkingArticlePage()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
-            articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogIn();
             articleDetailsPage.NavigateTo();
             articleDetailsPage.ClickManageButton();
@@ -282,8 +282,6 @@ namespace UITests
         public void CheckIfErrorMessageIsDisplayedTryingToEditArticleCreatedFromAnotherUser()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
-            articleDetailsPage.LogOffButton.Click();
-            articleDetailsPage.LogIn();
             articleDetailsPage.ClickLogOffButton();
             articleDetailsPage.RegisterSecondUser();
             articleDetailsPage.NavigateTo();
@@ -296,6 +294,7 @@ namespace UITests
         public void CheckIfErrorMessageIsDisplayedTryingToDeleteArticleCreatedFromAnotherUser()
         {
             var articleDetailsPage = new ArticleDetailsPage(driver);
+            articleDetailsPage.NavigateTo();
             articleDetailsPage.LogOffButton.Click();
             articleDetailsPage.LogInSecondUser();
             articleDetailsPage.NavigateTo();
@@ -313,6 +312,7 @@ namespace UITests
         public void CheckIfCancelButtonInArticleEditModeIsWorking()
         {
             var articleEditPage = new ArticleEditPage(driver);
+            articleEditPage.NavigateToHomePage();
             articleEditPage.LogOffButton.Click();
             articleEditPage.LogIn();
             articleEditPage.NavigateTo();
@@ -326,7 +326,7 @@ namespace UITests
         public void CheckIfCreateButtonIsNotDisplyedArticlePage()
         {
             var articleNodeView = new ArticleDetailsPage(driver);
-
+            articleNodeView.LogOffButton.Click();
             articleNodeView.NavigateToFirstArticle();
             articleNodeView.AssertCreateButtonIsMissing();
         }
@@ -377,6 +377,7 @@ namespace UITests
         public void CheckIfContentIsEditableInArticleDeleteMode()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
+            articleDeletePage.LogOffButton.Click();
             articleDeletePage.LogIn();
             articleDeletePage.NavigateTo();
             articleDeletePage.EditContent();
@@ -387,6 +388,7 @@ namespace UITests
         public void CheckIfCancelButtonInArticleDeleteModeIsWorking()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
+            articleDeletePage.LogOffButton.Click();
             articleDeletePage.LogIn();
             articleDeletePage.NavigateTo();
             articleDeletePage.CancelButtonClick();
@@ -397,6 +399,7 @@ namespace UITests
         public void CheckIfDeleteButtonInArticleDeleteModeIsWorking()
         {
             var articleDeletePage = new ArticleDeletePage(driver);
+            articleDeletePage.LogOffButton.Click();
             articleDeletePage.LogIn();
             articleDeletePage.NavigateTo();
             articleDeletePage.DeleteButtonClick();
@@ -409,6 +412,7 @@ namespace UITests
         public void DeleteUsers()
         {
             var userListPage = new UserListPage(driver);
+            userListPage.LogOffButton.Click();
             userListPage.LogIn();
             userListPage.NavigateTo();
             userListPage.Delete();
@@ -434,6 +438,7 @@ namespace UITests
         {
             var registrationPage = new RegistrationPage(driver);
             registrationPage.NavigateTo();
+            registrationPage.LogOffButton.Click();
             registrationPage.ClickLoginButton();
             registrationPage.AssertLoginButtonIsWorking();
         }
@@ -484,6 +489,7 @@ namespace UITests
         {
             var loginPage = new LoginPage(driver);
             loginPage.NavigateTo();
+            loginPage.LogOffButton.Click();
             loginPage.AssertCopyrightIsPresent();
         }
 

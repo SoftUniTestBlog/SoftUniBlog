@@ -144,6 +144,15 @@ namespace UITests.Pages.CreatePage
             }
         }
 
+        public IWebElement LogOffButton
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.LinkText("Log off")));
+                return Driver.FindElement(By.LinkText("Log off"));
+            }
+        }
+
         public string URL
         {
             get

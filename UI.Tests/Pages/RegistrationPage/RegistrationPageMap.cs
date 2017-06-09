@@ -193,7 +193,14 @@ namespace UITests.Pages.RegistrationPage
             }
         }
 
-      
+        public IWebElement LogOffButton
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id=\"logoutForm\"]/ul/li[3]/a")));
+                return Driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li[3]/a"));
+            }
+        }
     }
 
 }
